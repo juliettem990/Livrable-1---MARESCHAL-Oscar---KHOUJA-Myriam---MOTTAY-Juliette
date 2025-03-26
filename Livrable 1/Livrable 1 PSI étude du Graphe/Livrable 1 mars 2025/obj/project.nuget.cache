@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "XaSTrjrjvsB1v542pkf8L1ndSuY+Cw00iH8UJLssZ+OGPgsLAviwEB2jtdgxNzkXa86kVJk7nhmJ5vxpGgs/xg==",
+  "dgSpecHash": "xmTTs6h7LwYjeYNeV+advhdKUYcMwZf5LbsPfqLBNOJHV80oCRDWl8fOGpEC1A7jf+9QLh8KpjVD08z76aL4ZA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\julie\\Documents\\ESILV\\S4\\PB scientifique informatique\\Livrable 1 PSI étude du Graphe\\Livrable 1 mars 2025\\Livrable 1 mars 2025.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\julie\\Documents\\ESILV\\S4\\PB scientifique informatique\\Liv-in-Paris\\Livrable 1\\Livrable 1 PSI étude du Graphe\\Livrable 1 mars 2025\\Livrable 1 mars 2025.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\julie\\.nuget\\packages\\skiasharp\\3.116.1\\skiasharp.3.116.1.nupkg.sha512",
+    "C:\\Users\\julie\\.nuget\\packages\\skiasharp.nativeassets.macos\\3.116.1\\skiasharp.nativeassets.macos.3.116.1.nupkg.sha512",
+    "C:\\Users\\julie\\.nuget\\packages\\skiasharp.nativeassets.win32\\3.116.1\\skiasharp.nativeassets.win32.3.116.1.nupkg.sha512"
+  ],
   "logs": []
 }

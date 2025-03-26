@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\julie\\Documents\\ESILV\\S4\\PB scientifique informatique\\Livrable 1 PSI étude du Graphe\\Livrable 1 mars 2025\\Livrable 1 mars 2025.csproj": {}
+    "C:\\Users\\julie\\Documents\\ESILV\\S4\\PB scientifique informatique\\Liv-in-Paris\\Livrable 1\\Livrable 1 PSI étude du Graphe\\Livrable 1 mars 2025\\Livrable 1 mars 2025.csproj": {}
   },
   "projects": {
-    "C:\\Users\\julie\\Documents\\ESILV\\S4\\PB scientifique informatique\\Livrable 1 PSI étude du Graphe\\Livrable 1 mars 2025\\Livrable 1 mars 2025.csproj": {
+    "C:\\Users\\julie\\Documents\\ESILV\\S4\\PB scientifique informatique\\Liv-in-Paris\\Livrable 1\\Livrable 1 PSI étude du Graphe\\Livrable 1 mars 2025\\Livrable 1 mars 2025.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\julie\\Documents\\ESILV\\S4\\PB scientifique informatique\\Livrable 1 PSI étude du Graphe\\Livrable 1 mars 2025\\Livrable 1 mars 2025.csproj",
+        "projectUniqueName": "C:\\Users\\julie\\Documents\\ESILV\\S4\\PB scientifique informatique\\Liv-in-Paris\\Livrable 1\\Livrable 1 PSI étude du Graphe\\Livrable 1 mars 2025\\Livrable 1 mars 2025.csproj",
         "projectName": "Livrable 1 mars 2025",
-        "projectPath": "C:\\Users\\julie\\Documents\\ESILV\\S4\\PB scientifique informatique\\Livrable 1 PSI étude du Graphe\\Livrable 1 mars 2025\\Livrable 1 mars 2025.csproj",
+        "projectPath": "C:\\Users\\julie\\Documents\\ESILV\\S4\\PB scientifique informatique\\Liv-in-Paris\\Livrable 1\\Livrable 1 PSI étude du Graphe\\Livrable 1 mars 2025\\Livrable 1 mars 2025.csproj",
         "packagesPath": "C:\\Users\\julie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\julie\\Documents\\ESILV\\S4\\PB scientifique informatique\\Livrable 1 PSI étude du Graphe\\Livrable 1 mars 2025\\obj\\",
+        "outputPath": "C:\\Users\\julie\\Documents\\ESILV\\S4\\PB scientifique informatique\\Liv-in-Paris\\Livrable 1\\Livrable 1 PSI étude du Graphe\\Livrable 1 mars 2025\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\julie\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "SkiaSharp": {
+              "target": "Package",
+              "version": "[3.116.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

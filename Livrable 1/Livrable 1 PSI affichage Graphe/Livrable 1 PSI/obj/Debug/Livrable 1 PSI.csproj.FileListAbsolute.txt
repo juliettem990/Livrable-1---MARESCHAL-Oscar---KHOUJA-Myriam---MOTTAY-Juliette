@@ -16,3 +16,12 @@ C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\Livrable 1 PSI af
 C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\Livrable 1 PSI affichage Graphe\Livrable 1 PSI\obj\Debug\Livrable 1 PSI.csproj.CoreCompileInputs.cache
 C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\Livrable 1 PSI affichage Graphe\Livrable 1 PSI\obj\Debug\Livrable 1 PSI.exe
 C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\Livrable 1 PSI affichage Graphe\Livrable 1 PSI\obj\Debug\Livrable 1 PSI.pdb
+C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\Liv-in-Paris\Livrable 1\Livrable 1 PSI affichage Graphe\Livrable 1 PSI\bin\Debug\Livrable 1 PSI.exe.config
+C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\Liv-in-Paris\Livrable 1\Livrable 1 PSI affichage Graphe\Livrable 1 PSI\bin\Debug\Livrable 1 PSI.exe
+C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\Liv-in-Paris\Livrable 1\Livrable 1 PSI affichage Graphe\Livrable 1 PSI\bin\Debug\Livrable 1 PSI.pdb
+C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\Liv-in-Paris\Livrable 1\Livrable 1 PSI affichage Graphe\Livrable 1 PSI\obj\Debug\Livrable 1 PSI.csproj.AssemblyReference.cache
+C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\Liv-in-Paris\Livrable 1\Livrable 1 PSI affichage Graphe\Livrable 1 PSI\obj\Debug\Livrable_1_PSI.Properties.Resources.resources
+C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\Liv-in-Paris\Livrable 1\Livrable 1 PSI affichage Graphe\Livrable 1 PSI\obj\Debug\Livrable 1 PSI.csproj.GenerateResource.cache
+C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\Liv-in-Paris\Livrable 1\Livrable 1 PSI affichage Graphe\Livrable 1 PSI\obj\Debug\Livrable 1 PSI.csproj.CoreCompileInputs.cache
+C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\Liv-in-Paris\Livrable 1\Livrable 1 PSI affichage Graphe\Livrable 1 PSI\obj\Debug\Livrable 1 PSI.exe
+C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\Liv-in-Paris\Livrable 1\Livrable 1 PSI affichage Graphe\Livrable 1 PSI\obj\Debug\Livrable 1 PSI.pdb

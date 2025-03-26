@@ -1,19 +1,115 @@
-﻿using System;
+﻿using Livrable_1_mars_2025;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Drawing;
+using SkiaSharp;
 
 namespace Livrable_1_PSI
 {
     internal static class Programme
     {
+        /*public static void Visualiser(Graphe<int> graphe)
+        {
+            int width = 800, height = 600;
+            using (var bitmap = new SKBitmap(width, height))
+            using (var canvas = new SKCanvas(bitmap))
+            {
+                canvas.Clear(SKColors.White);
+                var pen = new SKPaint { Color = SKColors.Black, StrokeWidth = 2 };
+                var brush = new SKPaint { Color = SKColors.Blue, IsAntialias = true };
+
+                Dictionary<int, SKPoint> positions = new Dictionary<int, SKPoint>();
+                int centerX = width / 2, centerY = height / 2, rayon = 200;
+                int nbNoeuds = graphe.Noeuds.Count, i = 0;
+
+                foreach (var noeud in graphe.Noeuds.Keys)
+                {
+                    double angle = (2 * Math.PI * i) / nbNoeuds;
+                    float x = centerX + (float)(rayon * Math.Cos(angle));
+                    float y = centerY + (float)(rayon * Math.Sin(angle));
+                    positions[noeud] = new SKPoint(x, y);
+                    i++;
+                }
+
+                foreach (var noeud in graphe.Noeuds)
+                    foreach (var voisin in noeud.Value.Voisins)
+                        canvas.DrawLine(positions[noeud.Key], positions[voisin], pen);
+
+                foreach (var noeud in graphe.Noeuds)
+                {
+                    var pos = positions[noeud.Key];
+                    canvas.DrawCircle(pos, 15, brush);
+                    canvas.DrawText(noeud.Key.ToString(), pos.X - 10, pos.Y + 5, new SKPaint { Color = SKColors.White, TextSize = 20 });
+                }
+
+                using (var image = SKImage.FromBitmap(bitmap))
+                using (var data = image.Encode(SKEncodedImageFormat.Png, 100))
+                using (var stream = File.OpenWrite("graph.png"))
+                    data.SaveTo(stream);
+            }
+
+            System.Diagnostics.Process.Start("mspaint", "graph.png");
+        }*/
+        public static void Visualiser(Dictionary<string, List<Tuple<string, double>>> graphe, Dictionary<string, SKPoint> positions)
+        {
+            int width = 800, height = 600;
+
+            using (var bitmap = new SKBitmap(width, height))
+            using (var canvas = new SKCanvas(bitmap))
+            {
+                canvas.Clear(SKColors.White);
+                var pen = new SKPaint { Color = SKColors.Black, StrokeWidth = 2 };
+                var brush = new SKPaint { Color = SKColors.Blue, IsAntialias = true };
+
+                Dictionary<string, SKPoint> mapositions = new Dictionary<string, SKPoint>();
+                int centerX = width / 2, centerY = height / 2, rayon = 200;
+                int nbNoeuds = graphe.Count, i = 0;
+
+                // Dessiner les arcs (lignes entre nœuds)
+                foreach (var noeud in graphe)
+                {
+                    foreach (var arc in noeud.Value)
+                    {
+                        // Arc sortant de noeud -> arc.Item1 (voisin)
+                        if (mapositions.ContainsKey(noeud.Key) && mapositions.ContainsKey(arc.Item1))
+                        {
+                            canvas.DrawLine(mapositions[noeud.Key], mapositions[arc.Item1], pen);
+                        }
+                    }
+                }
+
+                // Dessiner les nœuds
+                foreach (var noeud in graphe)
+                {
+                    if (positions.ContainsKey(noeud.Key))
+                    {
+                        var pos = positions[noeud.Key];
+                        canvas.DrawCircle(pos, 20, brush);  // Taille des nœuds
+                        canvas.DrawText(noeud.Key, pos.X - 10, pos.Y + 5, new SKPaint { Color = SKColors.White, TextSize = 20 });
+                    }
+                }
+
+                // Sauvegarder l'image au format PNG
+                using (var image = SKImage.FromBitmap(bitmap))
+                using (var data = image.Encode(SKEncodedImageFormat.Png, 100))
+                using (var stream = File.OpenWrite("graph.png"))
+                    data.SaveTo(stream);
+            }
+
+            // Ouvrir l'image dans Paint
+            System.Diagnostics.Process.Start("mspaint", "graph.png");
+        }
         static void Main()
         {
-            Graphe monGraphe = new Graphe();
-            string cheminMTX = "soc-karate.mtx";
-            monGraphe.ChargerDepuisMTX(cheminMTX);
+            Graphe<int> monGraphe = new Graphe<int>();
+            string cheminCSV = "metroParis(Arcs).csv";
+            string cheminCoords = "metroParis(Noeuds).csv";
 
-            Console.WriteLine("Matrice d'adjacence :");
+            monGraphe.ChargerDepuisCSV(cheminCSV, int.Parse);
+
+            /*Console.WriteLine("Matrice d'adjacence :");
             monGraphe.AfficherMatriceAdjacence();
             Console.WriteLine();
 
@@ -32,162 +128,110 @@ namespace Livrable_1_PSI
             Console.WriteLine("Ordre du graphe : " + monGraphe.OrdreGraphe());
             Console.WriteLine("Taille du graphe : " + monGraphe.TailleGraphe());
 
+            //Visualiser(monGraphe);
             Console.WriteLine("\nAppuyez sur une touche pour quitter...");
             Console.ReadKey();
-        }
-    }
+            */
 
-    internal class Noeud
-    {
-        public int Id { get; set; }
-        public List<int> Voisins { get; set; } = new List<int>();
 
-        public Noeud(int id)
-        {
-            Id = id;
-        }
-    }
+            Dictionary<string, List<Tuple<string, double>>> mongraphe = new Dictionary<string, List<Tuple<string, double>>>();
 
-    internal class Graphe
-    {
-        public Dictionary<int, Noeud> Noeuds { get; set; } = new Dictionary<int, Noeud>();
-
-        public void AjouterLien(int precedent, int suivant)
-        {
-            if (!Noeuds.ContainsKey(precedent))
-                Noeuds[precedent] = new Noeud(precedent);
-            if (!Noeuds.ContainsKey(suivant))
-                Noeuds[suivant] = new Noeud(suivant);
-            Noeuds[precedent].Voisins.Add(suivant);
-            Noeuds[suivant].Voisins.Add(precedent);
-        }
-
-        public void AfficherListeAdjacence()
-        {
-            foreach (var noeud in Noeuds.OrderBy(n => n.Key))
+            // Vérifie si le fichier existe
+            if (File.Exists(cheminCSV))
             {
-                noeud.Value.Voisins.Sort();
-                Console.WriteLine($"{noeud.Key} : {string.Join(", ", noeud.Value.Voisins)}");
-            }
-        }
+                // Lire toutes les lignes du fichier
+                string[] lines = File.ReadAllLines(cheminCSV);
 
-        public void AfficherMatriceAdjacence()
-        {
-            int n = Noeuds.Keys.Max();
-            int[,] matrice = new int[n + 1, n + 1];
-
-            foreach (var noeud in Noeuds)
-                foreach (var voisin in noeud.Value.Voisins)
-                    matrice[noeud.Key, voisin] = 1;
-
-            Console.Write("   ");
-            for (int i = 1; i <= n; i++)
-                Console.Write($"{i,3}");
-            Console.WriteLine();
-
-            Console.Write("   ");
-            for (int i = 1; i <= n; i++)
-                Console.Write("---");
-            Console.WriteLine();
-
-            for (int i = 1; i <= n; i++)
-            {
-                Console.Write($"{i,2} | ");
-                for (int j = 1; j <= n; j++)
-                    Console.Write($"{matrice[i, j],3}");
-                Console.WriteLine();
-            }
-        }
-
-        public void ParcoursLargeurBFS(int sommetDepart)
-        {
-            HashSet<int> visite = new HashSet<int>();
-            Queue<int> file = new Queue<int>();
-            file.Enqueue(sommetDepart);
-            visite.Add(sommetDepart);
-            while (file.Count > 0)
-            {
-                int noeud = file.Dequeue();
-                Console.Write(noeud + " ");
-                foreach (int voisin in Noeuds[noeud].Voisins)
+                // Parcours de chaque ligne du fichier CSV
+                foreach (string line in lines)
                 {
-                    if (visite.Add(voisin))
-                        file.Enqueue(voisin);
+                    // Diviser la ligne en colonnes
+                    string[] columns = line.Split(',');
+
+                    if (columns.Length >= 5)
+                    {
+                        string node1 = columns[1]; // Nœud de départ (colonne 2)
+                        string node2 = columns[2]; // Nœud de destination (colonne 3)
+                        double poids = Convert.ToDouble(columns[4]); // Poids de l'arc (colonne 5)
+
+                        // Ajouter les arcs dans le dictionnaire
+                        if (!mongraphe.ContainsKey(node1))
+                        {
+                            mongraphe[node1] = new List<Tuple<string, double>>();
+                        }
+
+                        // Ajouter l'arc avec le poids
+                        mongraphe[node1].Add(new Tuple<string, double>(node2, poids));
+                    }
+                }
+
+                // Appel de la fonction pour visualiser le graphe
+                Visualiser(mongraphe);
+            }
+            else
+            {
+                Console.WriteLine("Le fichier spécifié n'existe pas.");
+            }
+
+
+            public static Dictionary<string, SKPoint> LireCoordonnees(string cheminCoords)
+            {
+                Dictionary<string, SKPoint> positions = new Dictionary<string, SKPoint>();
+
+                if (File.Exists(cheminCoords))
+                {
+                    string[] lines = File.ReadAllLines(cheminCoords);
+
+                    // Trouver les min/max des coordonnées pour effectuer la normalisation
+                    double minLongitude = double.MaxValue, maxLongitude = double.MinValue;
+                    double minLatitude = double.MaxValue, maxLatitude = double.MinValue;
+
+                    foreach (string line in lines)
+                    {
+                        string[] columns = line.Split(',');
+
+                        if (columns.Length == 3)
+                        {
+                            string nodeName = columns[2];
+                            double longitude = Convert.ToDouble(columns[3]);
+                            double latitude = Convert.ToDouble(columns[4]);
+
+                            minLongitude = Math.Min(minLongitude, longitude);
+                            maxLongitude = Math.Max(maxLongitude, longitude);
+                            minLatitude = Math.Min(minLatitude, latitude);
+                            maxLatitude = Math.Max(maxLatitude, latitude);
+
+                            // Stocker les coordonnées géographiques du nœud
+                            positions[nodeName] = new SKPoint((float)longitude, (float)latitude);
+                        }
+                    }
+
+                    // Normaliser les coordonnées pour les adapter à la taille de la carte (espace 2D)
+                    double scaleX = 800.0 / (maxLongitude - minLongitude);
+                    double scaleY = 600.0 / (maxLatitude - minLatitude);
+
+                    // Appliquer la normalisation pour positionner les nœuds sur la carte
+                    Dictionary<string, SKPoint> normalizedPositions = new Dictionary<string, SKPoint>();
+
+                    foreach (var position in positions)
+                    {
+                        float x = (position.Value.X - (float)minLongitude) * (float)scaleX;
+                        float y = (position.Value.Y - (float)minLatitude) * (float)scaleY;
+                        normalizedPositions[position.Key] = new SKPoint(x, y);
+                    }
+
+                    return normalizedPositions;
+                }
+                else
+                {
+                    Console.WriteLine("Le fichier des coordonnées spécifié n'existe pas.");
+                    return new Dictionary<string, SKPoint>();
                 }
             }
-            Console.WriteLine();
+
+
         }
-
-        public void ParcoursProfondeurDFS(int sommetDepart)
-        {
-            HashSet<int> visite = new HashSet<int>();
-            Stack<int> pile = new Stack<int>();
-            pile.Push(sommetDepart);
-            while (pile.Count > 0)
-            {
-                int noeud = pile.Pop();
-                if (visite.Add(noeud))
-                {
-                    Console.Write(noeud + " ");
-                    foreach (int voisin in Noeuds[noeud].Voisins)
-                        pile.Push(voisin);
-                }
-            }
-            Console.WriteLine();
-        }
-
-        public bool EstConnecte()
-        {
-            if (Noeuds.Count == 0) return false;
-            HashSet<int> visite = new HashSet<int>();
-            DFSHelper(Noeuds.Keys.First(), visite);
-            return visite.Count == Noeuds.Count;
-        }
-
-        private void DFSHelper(int noeud, HashSet<int> visite)
-        {
-            if (visite.Add(noeud))
-                foreach (int voisin in Noeuds[noeud].Voisins)
-                    DFSHelper(voisin, visite);
-        }
-
-        public bool ContientCycle()
-        {
-            HashSet<int> visite = new HashSet<int>();
-            return Noeuds.Keys.Any(noeud => !visite.Contains(noeud) && CycleDFS(noeud, -1, visite));
-        }
-
-        private bool CycleDFS(int noeud, int parent, HashSet<int> visite)
-        {
-            visite.Add(noeud);
-            foreach (int voisin in Noeuds[noeud].Voisins)
-            {
-                if (!visite.Contains(voisin))
-                {
-                    if (CycleDFS(voisin, noeud, visite)) return true;
-                }
-                else if (voisin != parent)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public int OrdreGraphe() => Noeuds.Count;
-
-        public int TailleGraphe() => Noeuds.Sum(n => n.Value.Voisins.Count) / 2;
-
-        public void ChargerDepuisMTX(string cheminFichier)
-        {
-            foreach (var ligne in File.ReadLines(cheminFichier).Where(l => !l.StartsWith("%")))
-            {
-                var parties = ligne.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
-                if (parties.Length == 2)
-                    AjouterLien(int.Parse(parties[0]), int.Parse(parties[1]));
-            }
-        }
-    }
+    }    
 }
 
 
