@@ -5,8 +5,12 @@ CREATE TABLE Client (
     id_client INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(100) NOT NULL,
     prenom VARCHAR(100) NOT NULL,
-    adresse VARCHAR(255) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
+    rue VARCHAR(100),
+    numeroRue VARCHAR(100),
+    codePostal INT,
+    ville VARCHAR(100),
+    metroLePlusProche VARCHAR(100) NOT NULL,
     telephone VARCHAR(20) UNIQUE NOT NULL,
     note_moyenne DECIMAL(3,2) DEFAULT 0,
     mot_de_passe VARCHAR(255) NOT NULL
@@ -19,8 +23,13 @@ CREATE TABLE Cuisinier (
     prenom VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     telephone VARCHAR(20) UNIQUE NOT NULL,
-    adresse VARCHAR(255) NOT NULL,
+    rue VARCHAR(100),
+    numeroRue VARCHAR(100),
+    codePostal INT,
+    ville VARCHAR(100),
+    metroLePlusProche VARCHAR(100) NOT NULL,
     specialite_culinaire VARCHAR(100),
+    mot_de_passe VARCHAR(255) NOT NULL,
     note_moyenne DECIMAL(3,2) DEFAULT 0
 );
 
@@ -35,6 +44,7 @@ CREATE TABLE Plat (
     prix DECIMAL(10,2) NOT NULL,
     ingredients TEXT NOT NULL,
     temps_livraison INT NOT NULL,
+    date_fabrication DATE NOT NULL,
     date_peremption DATE NOT NULL
 );
 
