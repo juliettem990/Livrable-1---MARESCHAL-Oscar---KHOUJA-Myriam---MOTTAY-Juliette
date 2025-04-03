@@ -7,44 +7,40 @@ using System.Windows.Forms;
 
 namespace Livrable_1_PSI
 {
-    internal static class Program
+    static class Program
     {
         [STAThread]
         static void Main()
         {
-            Graphe monGraphe = new Graphe();
-            string cheminMTX = "soc-karate.mtx";  
-            monGraphe.ChargerDepuisMTX(cheminMTX);
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new VisualisationGraph(monGraphe));
 
-            
-            Console.WriteLine("Matrice d'adjacence :");
-            monGraphe.AfficherMatriceAdjacence();
-            Console.WriteLine();
+            var graphe = new GrapheMetro();
+            graphe.ChargerDonnees();
 
-            Console.WriteLine("Liste d'adjacence :");
-            monGraphe.AfficherListeAdjacence();
-            Console.WriteLine();
-
-            Console.WriteLine("\nParcours en largeur (BFS) à partir du sommet 1 :");
-            monGraphe.ParcoursLargeurBFS(1);
-
-            Console.WriteLine("\nParcours en profondeur (DFS) à partir du sommet 1 :");
-            monGraphe.ParcoursProfondeurDFS(1);
-
-            Console.WriteLine("\nLe graphe est-il connecté ? " + (monGraphe.EstConnecte() ? "Oui" : "Non"));
-            Console.WriteLine("Le graphe contient-il un cycle ? " + (monGraphe.ContientCycle() ? "Oui" : "Non"));
-            Console.WriteLine("Ordre du graphe : " + monGraphe.OrdreGraphe());
-            Console.WriteLine("Taille du graphe : " + monGraphe.TailleGraphe());
-
-            Console.WriteLine("\nAppuyez sur une touche pour quitter...");
-            //Console.ReadKey();
-            
+            if (graphe.Stations.Count > 0 && graphe.Connexions.Count > 0)
+            {
+                Application.Run(new MetroForm(graphe));
+            }
+            else
+            {
+                MessageBox.Show("Erreur: Impossible de charger les données du métro",
+                              "Erreur",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Error);
+            }
         }
     }
 
-   
+
+    public class Station
+    {
+        public int Id { get; set; }
+        public string Nom { get; set; }
+        public string Ligne { get; set; }
+        public double Longitude { get; set; }
+        public double Latitude { get; set; }
+    }
+
+
 }

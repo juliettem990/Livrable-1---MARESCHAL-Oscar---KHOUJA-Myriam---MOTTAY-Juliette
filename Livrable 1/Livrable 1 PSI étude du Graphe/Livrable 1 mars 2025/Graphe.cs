@@ -1,13 +1,16 @@
-﻿using System;
+﻿using Livrable_2_MARESCHAL_Oscar_KHOUJA_Myriam_MOTTAY_Juliette;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System;
 
-namespace Livrable_1_mars_2025
+namespace Livrable_2_MARESCHAL_Oscar_KHOUJA_Myriam_MOTTAY_Juliette
 {
     
     internal class Graphe<T>
@@ -95,7 +98,7 @@ namespace Livrable_1_mars_2025
                     }
                 }
             }
-            sr.Close();*/
+            sr.Close(); */
         }
         public void AfficherMatriceAdjacence()
         {
@@ -324,5 +327,6 @@ namespace Livrable_1_mars_2025
             return taille / 2;
         }
     }
+    
 
 }

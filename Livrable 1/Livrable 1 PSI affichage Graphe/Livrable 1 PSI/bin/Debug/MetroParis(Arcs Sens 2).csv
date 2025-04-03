@@ -1,0 +1,323 @@
+Station Id;Station;Précédent;Suivant;Temps entre 2 stations;Temps de Changement
+1;Porte Maillot;2;0;0;0
+2;Argentine;3;1;3;0
+3;Charles de Gaulle - Etoile;4;2;2;3
+4;George V;5;3;3;0
+5;Franklin D. Roosevelt;6;4;2;2
+6;Champs-Elysées - Clemenceau;7;5;3;2
+7;Concorde;8;6;2;3
+8;Tuileries;9;7;4;0
+9;Palais Royal - Musée du Louvre;10;8;2;2
+10;Louvre - Rivoli;11;9;3;0
+11;Châtelet;12;10;2;5
+12;Hôtel de Ville;13;11;3;2
+13;Saint-Paul (Le Marais);14;12;2;0
+14;Bastille;15;13;4;3
+15;Gare de Lyon;16;14;2;2
+16;Reuilly - Diderot;17;15;2;2
+17;Nation;18;16;2;4
+18;Porte de Vincennes;19;17;2;0
+19;Château de Vincennes;0;18;1;0
+20;Porte Dauphine;21;0;0;0
+21;Victor Hugo;22;20;2;0
+22;Charles de Gaulle - Etoile;23;21;1;3
+23;Ternes;24;22;2;0
+24;Courcelles;25;23;1;0
+25;Monceau;26;24;2;0
+26;Villiers;27;25;1;2
+27;Rome;28;26;3;0
+28;Place de Clichy;29;27;2;2
+29;Blanche;30;28;1;0
+30;Pigalle;31;29;2;2
+31;Anvers;32;30;3;0
+32;Barbès - Rochechouart;33;31;2;2
+33;La Chapelle;34;32;5;0
+34;Stalingrad;35;33;2;3
+35;Jaurès;36;34;2;3
+36;Colonel Fabien;37;35;2;0
+37;Belleville;38;36;2;2
+38;Couronnes;39;37;2;0
+39;Ménilmontant;40;38;1;0
+40;Père Lachaise;41;39;1;2
+41;Philippe Auguste;42;40;1;0
+42;Alexandre Dumas;43;41;2;0
+43;Avron;44;42;1;0
+44;Nation;0;43;2;4
+45;Porte de Champerret;46;0;0;0
+46;Pereire;47;45;3;0
+47;Wagram;48;46;2;0
+48;Malesherbes;49;47;1;0
+49;Villiers;50;48;3;2
+50;Europe;51;49;5;0
+51;Saint-Lazare;52;50;5;4
+52;Havre-Caumartin;53;51;3;2
+53;Opéra;54;52;4;3
+54;Quatre Septembre;55;53;2;0
+55;Bourse;56;54;4;0
+56;Sentier;57;55;5;0
+57;Réaumur - Sébastopol;58;56;4;2
+58;Arts et Métiers;59;57;3;2
+59;Temple;60;58;5;0
+60;République;61;59;1;5
+61;Parmentier;62;60;5;0
+62;Rue Saint-Maur;63;61;3;0
+63;Père Lachaise;64;62;5;2
+64;Gambetta;65;63;3;2
+65;Porte de Bagnolet;0;64;4;0
+66;Porte des Lilas;67;0;0;2
+67;Saint-Fargeau;68;66;4;0
+68;Pelleport;69;67;5;0
+69;Gambetta;0;68;1;2
+70;Porte de Clignancourt;71;0;0;0
+71;Simplon;72;70;5;0
+72;Marcadet - Poissonniers;73;71;4;2
+73;Château Rouge;74;72;3;0
+74;Barbès - Rochechouart;75;73;1;2
+75;Gare du Nord;76;74;5;2
+76;Gare de l'Est;77;75;3;3
+77;Château d'Eau;78;76;1;0
+78;Strasbourg - Saint-Denis;79;77;1;3
+79;Réaumur - Sébastopol;80;78;1;2
+80;Etienne Marcel;81;79;2;0
+81;Les Halles;82;80;3;0
+82;Châtelet;83;81;3;5
+83;Cité;84;82;1;0
+84;Saint-Michel;85;83;2;0
+85;Odéon;86;84;4;2
+86;Saint-Germain-des-Prés;87;85;2;0
+87;Saint-Sulpice;88;86;4;0
+88;Saint-Placide;89;87;4;0
+89;Montparnasse Bienvenue;90;88;3;4
+90;Vavin;91;89;1;0
+91;Raspail;92;90;4;2
+92;Denfert-Rochereau;93;91;5;2
+93;Mouton-Duvernet;94;92;2;0
+94;Alésia;95;93;4;0
+95;Porte d'Orléans;0;94;4;0
+96;Porte de Pantin;97;0;0;0
+97;Ourcq;98;96;4;0
+98;Laumière;99;97;5;0
+99;Jaurès;100;98;5;3
+100;Stalingrad;101;99;5;3
+101;Gare du Nord;102;100;4;2
+102;Gare de l'Est;103;101;3;3
+103;Jacques Bonsergent;104;102;1;0
+104;République;105;103;2;5
+105;Oberkampf;106;104;2;2
+106;Richard-Lenoir;107;105;4;0
+107;Bréguet-Sabin;108;106;4;0
+108;Bastille;109;107;4;3
+109;Quai de la Rapée;110;108;4;0
+110;Gare d'Austerlitz;111;109;3;2
+111;Saint-Marcel;112;110;4;0
+112;Campo-Formio;113;111;3;0
+113;Place d'Italie;0;112;1;3
+114;Charles de Gaulle - Etoile;115;0;0;3
+115;Kléber;116;114;1;0
+116;Boissière;117;115;2;0
+117;Trocadéro;118;116;3;2
+118;Passy;119;117;1;0
+119;Bir-Hakeim;120;118;4;0
+120;Dupleix;121;119;2;0
+121;La Motte-Picquet - Grenelle;122;120;5;3
+122;Cambronne;123;121;2;0
+123;Sèvres-Lecourbe;124;122;4;0
+124;Pasteur;125;123;1;2
+125;Montparnasse Bienvenue;126;124;2;4
+126;Edgar Quinet;127;125;3;0
+127;Raspail;128;126;4;2
+128;Denfert-Rochereau;129;127;1;2
+129;Saint-Jacques;130;128;1;0
+130;Glacière;131;129;2;0
+131;Corvisart;132;130;4;0
+132;Place d'Italie;133;131;4;3
+133;Nationale;134;132;4;0
+134;Chevaleret;135;133;2;0
+135;Quai de la Gare;136;134;3;0
+136;Bercy;137;135;3;2
+137;Dugommier;138;136;4;0
+138;Daumesnil;139;137;1;2
+139;Bel-Air;140;138;3;0
+140;Picpus;141;139;1;0
+141;Nation;0;140;2;4
+142;Porte de la Villette;143;0;0;0
+143;Corentin Cariou;144;142;1;0
+144;Crimée;145;143;3;0
+145;Riquet;146;144;5;0
+146;Stalingrad;147;145;2;3
+147;Louis Blanc;148;146;1;2
+148;Château Landon;149;147;2;0
+149;Gare de l'Est;150;148;2;3
+150;Poissonnière;151;149;4;0
+151;Cadet;152;150;5;0
+152;Le Peletier;153;151;5;0
+153;Chaussée d'Antin - La Fayette;154;152;5;2
+154;Opéra;155;153;3;3
+155;Pyramides;156;154;1;2
+156;Palais Royal - Musée du Louvre;157;155;3;2
+157;Pont Neuf;158;156;5;0
+158;Châtelet;159;157;2;5
+159;Pont Marie (Cité des Arts);160;158;3;0
+160;Sully - Morland;161;159;5;0
+161;Jussieu;162;160;1;2
+162;Place Monge;163;161;4;0
+163;Censier - Daubenton;164;162;1;0
+164;Les Gobelins;165;163;5;0
+165;Place d'Italie;166;164;4;3
+166;Tolbiac;167;165;3;0
+167;Maison Blanche;168;166;1;3
+168;Porte d'Italie;169;167;4;0
+169;Porte de Choisy;170;168;3;0
+170;Porte d'Ivry;0;169;3;0
+171;Maison Blanche;0;166;5;3
+172;Louis Blanc;173;0;0;2
+173;Jaurès;174;172;1;3
+174;Bolivar;175;173;2;0
+175;Buttes Chaumont;176;174;4;0
+176;Botzaris;0;175;3;2
+181;Balard;182;0;0;0
+182;Lourmel;183;181;5;0
+183;Boucicaut;184;182;3;0
+184;Félix Faure;185;183;1;0
+185;Commerce;186;184;4;0
+186;La Motte-Picquet - Grenelle;187;185;1;3
+187;Ecole Militaire;188;186;5;0
+188;La Tour-Maubourg;189;187;2;0
+189;Invalides;190;188;3;2
+190;Concorde;191;189;4;3
+191;Madeleine;192;190;1;3
+192;Opéra;193;191;5;3
+193;Richelieu - Drouot;194;192;5;2
+194;Grands Boulevards;195;193;3;2
+195;Bonne Nouvelle;196;194;4;2
+196;Strasbourg - Saint-Denis;197;195;3;3
+197;République;198;196;1;5
+198;Filles du Calvaire;199;197;5;0
+199;Saint-Sébastien - Froissart;200;198;1;0
+200;Chemin Vert;201;199;4;0
+201;Bastille;202;200;2;3
+202;Ledru-Rollin;203;201;2;0
+203;Faidherbe - Chaligny;204;202;2;0
+204;Reuilly - Diderot;205;203;1;2
+205;Montgallet;206;204;5;0
+206;Daumesnil;207;205;3;2
+207;Michel Bizot;208;206;4;0
+208;Porte Dorée;209;207;2;0
+209;Porte de Charenton;0;208;4;0
+210;Porte de Saint-Cloud;211;0;0;0
+211;Exelmans;212;210;3;0
+212;Michel-Ange - Molitor;213;211;3;2
+213;Michel-Ange - Auteuil;214;212;4;2
+214;Jasmin;215;213;4;0
+215;Ranelagh;216;214;1;0
+216;La Muette;217;215;3;0
+217;Rue de la Pompe;218;216;5;0
+218;Trocadéro;219;217;4;2
+219;Iéna;220;218;4;0
+220;Alma - Marceau;221;219;4;0
+221;Franklin D. Roosevelt;222;220;4;2
+222;Saint-Philippe du Roule;223;221;2;0
+223;Miromesnil;224;222;4;2
+224;Saint-Augustin;225;223;5;0
+225;Havre-Caumartin;226;224;3;2
+226;Chaussée d'Antin - La Fayette;227;225;5;2
+227;Richelieu - Drouot;228;226;2;2
+228;Grands Boulevards;229;227;5;2
+229;Bonne Nouvelle;230;228;1;2
+230;Strasbourg - Saint-Denis;231;229;1;3
+231;République;232;230;4;5
+232;Oberkampf;233;231;2;2
+233;Saint-Ambroise;234;232;3;0
+234;Voltaire;235;233;4;0
+235;Charonne;236;234;5;0
+236;Rue des Boulets;237;235;5;0
+237;Nation;238;236;4;4
+238;Buzenval;239;237;2;0
+239;Maraîchers;240;238;4;0
+240;Porte de Montreuil;0;239;5;0
+241;Gare d'Austerlitz;242;0;0;2
+242;Jussieu;243;241;1;2
+243;Cardinal Lemoine;244;242;3;0
+244;Maubert - Mutualité;245;243;5;0
+245;Cluny - La Sorbonne;246;244;2;0
+246;Odéon;247;245;2;2
+247;Mabillon;248;246;1;0
+248;Sèvres - Babylone;249;247;3;2
+249;Vaneau;250;248;4;0
+250;Duroc;251;249;3;2
+251;Ségur;252;250;2;0
+252;La Motte-Picquet - Grenelle;253;251;3;3
+253;Avenue Emile Zola;254;252;4;0
+254;Charles Michels;255;253;3;0
+255;Javel - André Citroën;0;254;2;0
+262;Châtelet;263;0;0;5
+263;Hôtel de Ville;264;262;4;2
+264;Rambuteau;265;263;4;0
+265;Arts et Métiers;266;264;1;2
+266;République;267;265;5;5
+267;Goncourt;268;266;4;0
+268;Belleville;269;267;2;2
+269;Pyrénées;270;268;2;0
+270;Jourdain;271;269;2;0
+271;Place des FÃªtes;272;270;5;2
+272;Télégraphe;273;271;1;0
+273;Porte des Lilas;0;272;5;2
+274;Porte de la Chapelle;275;0;0;0
+275;Marx Dormoy;276;274;4;0
+276;Marcadet - Poissonniers;277;275;3;2
+277;Jules Joffrin;278;276;4;0
+278;Lamarck - Caulaincourt;279;277;5;0
+279;Abbesses;280;278;4;0
+280;Pigalle;281;279;1;2
+281;Saint-Georges;282;280;1;0
+282;Notre-Dame-de-Lorette;283;281;3;0
+283;Trinité - d'Estienne d'Orves;284;282;5;0
+284;Saint-Lazare;285;283;4;4
+285;Madeleine;286;284;1;3
+286;Concorde;287;285;1;3
+287;Assemblée Nationale;288;286;2;0
+288;Solférino;289;287;4;0
+289;Rue du Bac;290;288;4;0
+290;Sèvres - Babylone;291;289;5;2
+291;Rennes;292;290;3;0
+292;Notre-Dame des Champs;293;291;1;0
+293;Montparnasse Bienvenue;294;292;2;4
+294;Falguière;295;293;4;0
+295;Pasteur;296;294;3;2
+296;Volontaires;297;295;4;0
+297;Vaugirard;298;296;5;0
+298;Convention;299;297;2;0
+299;Porte de Versailles;0;298;1;0
+300;Porte de Vanves;301;0;0;0
+301;Plaisance;302;300;2;0
+302;Pernety;303;301;4;0
+303;Gaîté;304;302;4;0
+304;Montparnasse Bienvenue;305;303;4;4
+305;Duroc;306;304;1;2
+306;Saint-François-Xavier;307;305;5;0
+307;Varenne;308;306;3;0
+308;Invalides;309;307;1;2
+309;Champs-Elysées - Clemenceau;310;308;5;2
+310;Miromesnil;311;309;4;2
+311;Saint-Lazare;312;310;5;4
+312;Liège;313;311;4;0
+313;Place de Clichy;314;312;2;2
+314;La Fourche;315;313;5;2
+315;Guy Môquet;316;314;3;0
+316;Porte de Saint-Ouen;0;315;2;0
+317;La Fourche;318;313;3;2
+318;Brochant;319;317;3;0
+319;Porte de Clichy;0;318;2;2
+320;Porte de Clichy;321;0;0;2
+321;Pont Cardinet;322;320;5;0
+322;Saint-Lazare;323;321;2;4
+323;Madeleine;324;322;2;3
+324;Pyramides;325;323;1;2
+325;Châtelet;326;324;1;5
+326;Gare de Lyon;327;325;5;2
+327;Bercy;328;326;4;2
+328;Cour Saint-Emilion;329;327;3;0
+329;Bibliothèque François Mitterrand;330;328;2;0
+330;Olympiades;331;329;3;2
+331;Olympiades;332;330;5;2
+332;Maison Blanche;0;331;1;3
