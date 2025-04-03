@@ -13,14 +13,12 @@ namespace Livrable_2_MARESCHAL_Oscar_KHOUJA_Myriam_MOTTAY_Juliette
      {
          public T IdNoeud { get; set; }
          public List<T> Voisins { get; set; }
-         //public int PoidNoeudSuivant {  get; set; }
          public Point Position { get; set; }
 
          public Noeud(T idNoeud)
          {
              IdNoeud = idNoeud;
              Voisins = new List<T>();
-             //PoidNoeudSuivant = ;
          }
      }
     
