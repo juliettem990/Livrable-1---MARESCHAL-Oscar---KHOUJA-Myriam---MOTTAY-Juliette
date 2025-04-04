@@ -45,11 +45,11 @@ CREATE TABLE Plat (
     id_cuisinier INT NOT NULL,
     nom VARCHAR(100) NOT NULL,
     photo VARCHAR(255),
-    nombre_personne INT NOT NULL,
     type_plat VARCHAR(50) NOT NULL,
     nationalite_plat VARCHAR(50) NOT NULL,
     prix DECIMAL(10,2) NOT NULL,
     ingredients TEXT NOT NULL,
+    nombre_portion INT NOT NULL,
     date_fabrication DATE NOT NULL,
     date_peremption DATE NOT NULL,
 	FOREIGN KEY (id_cuisinier) REFERENCES Cuisinier(id_cuisinier) ON DELETE CASCADE
@@ -60,12 +60,14 @@ CREATE TABLE Commande (
     id_commande INT PRIMARY KEY AUTO_INCREMENT,
     id_client INT NOT NULL,
     id_cuisinier INT NOT NULL,
+    id_plat INT NOT NULL,
     date_heure_commande DATETIME NOT NULL,
     nombre_portion INT NOT NULL,
     statut_commande ENUM('En attente', 'En cours', 'Livré', 'Annulé') DEFAULT 'En attente',
     adresse_livraison VARCHAR(255) NOT NULL,
     FOREIGN KEY (id_client) REFERENCES Client(id_client),
-    FOREIGN KEY (id_cuisinier) REFERENCES Cuisinier(id_cuisinier)
+    FOREIGN KEY (id_cuisinier) REFERENCES Cuisinier(id_cuisinier),
+	FOREIGN KEY (id_plat) REFERENCES Plat(id_plat)
 );
 -- table pour gérer les plats commandés
 CREATE TABLE Commande_Plat (
@@ -79,6 +81,7 @@ CREATE TABLE Commande_Plat (
 
 CREATE TABLE Notation (
     id_notation INT PRIMARY KEY AUTO_INCREMENT,
+    id_commande INT NOT NULL,
     id_client INT NOT NULL,
     id_cuisinier INT NOT NULL,
     note_attribuee DECIMAL(2,1) CHECK (note_attribuee BETWEEN 0 AND 5),
@@ -106,19 +109,9 @@ INSERT INTO Client (nom, prenom, rue, numeroRue, codePostal, ville, metroLePlusP
 ('Morel', 'Sophie', 'Boulevard Haussmann', '50', 75008, 'Paris', 'Havre-Caumartin', 'sophie.morel@email.com', '0623456789', 'test'),
 ('Rousseau', 'Pierre', 'Rue de Rennes', '5', 75006, 'Paris', 'Saint-Placide', 'pierre.rousseau@email.com', '0634567890', 'test'),
 ('Mot', 'ju','Rue de Nantes','24', 75009, 'Paris', 'Cadet', 'ju.mot@e.com', '0685930589', 'test');
+
 INSERT INTO Cuisinier (nom, prenom, rue, numeroRue, codePostal, ville, metroLePlusProche, email, telephone, specialite_culinaire, mot_de_passe, note_moyenne) VALUES
 ('Mart', 'ju', 'Rue de Lyon', '20', 75012, 'Paris', 'Gare de Lyon', 'ju@e.com', '0611111111', 'Cuisine Française', 'test', 0.0);
-
-INSERT INTO Plat (nom, nombre_personne, type_plat, nationalite_plat, prix, ingredients,  date_fabrication, date_peremption, id_cuisinier) VALUES
-('Ratatouille', 2, 'Plat principal', 'Française', 12.50, 'Aubergines, Courgettes, Poivrons', '2025-03-08', '2025-03-10', 1);
-
-INSERT INTO Commande (id_client, id_cuisinier, date_heure_commande, nombre_portion, statut_commande, adresse_livraison) VALUES
-(1, 1, NOW(), 2, 'En attente', '12 Rue de Paris');
-
-
-INSERT INTO Notation (id_client, id_cuisinier, note_attribuee, commentaire) VALUES
-(1, 1, 4.5, 'Très bon repas !');
-
 INSERT INTO Cuisinier (nom, prenom, rue, numeroRue, codePostal, ville, metroLePlusProche, email, telephone, specialite_culinaire, mot_de_passe, note_moyenne) VALUES
 ('Lemoine', 'Thomas', 'Rue Oberkampf', '15', 75011, 'Paris', 'Oberkampf', 'thomas.lemoine@email.com', '0602857491', 'Cuisine Italienne', 'test', 0.0),
 ('Dubois', 'Emma', 'Boulevard Saint-Michel', '30', 75005, 'Paris', 'Cluny-La Sorbonne', 'emma.dubois@email.com', '0657829578', 'Cuisine Asiatique', 'test', 0.0),
@@ -128,30 +121,35 @@ INSERT INTO Cuisinier (id_cuisinier, nom, prenom, rue, numeroRue, codePostal, vi
 (6, 'Tanaka', 'Hiroshi', 'Rue Saint-Honoré', '88', 75001, 'Paris', 'Palais Royal', 'hiroshi.tanaka@email.com', '0627185746', 'Cuisine Japonaise', 'test', 0.0),
 (7, 'Patel', 'Aisha', 'Boulevard Voltaire', '12', 75011, 'Paris', 'Oberkampf', 'aisha.patel@email.com', '0607869572', 'Cuisine Indienne', 'test', 0.0);
 
-INSERT INTO Plat (nom, nombre_personne, type_plat, nationalite_plat, prix, ingredients, date_fabrication, date_peremption, id_cuisinier) VALUES
-('Boeuf Bourguignon', 2, 'Plat principal', 'Française', 15.00, 'Boeuf, Vin rouge, Carottes, Oignons', '2025-03-08', '2025-03-10', 1),
-('Tarte Tatin', 4, 'Dessert', 'Française', 8.50, 'Pommes, Sucre, Beurre', '2025-03-09', '2025-03-11', 1),
-('Pâtes Carbonara', 3, 'Plat principal', 'Italienne', 12.00, 'Pâtes, Œufs, Lardons, Parmesan', '2025-03-08', '2025-03-10', 2),
-('Tiramisu', 2, 'Dessert', 'Italienne', 7.00, 'Mascarpone, Café, Biscuits', '2025-03-08', '2025-03-10', 2),
-('Sushi Varié', 2, 'Plat principal', 'Japonaise', 18.00, 'Saumon, Riz, Algues', '2025-03-07', '2025-03-09', 3),
-('Ramen au Porc', 1, 'Plat principal', 'Japonaise', 14.50, 'Nouilles, Porc, Bouillon, Œuf', '2025-03-07', '2025-03-09', 3),
-('Salade de Quinoa', 3, 'Entrée', 'Végétarienne', 10.00, 'Quinoa, Tomates, Avocats', '2025-03-08', '2025-03-10', 4),
-('Curry de Légumes', 2, 'Plat principal', 'Indienne', 13.50, 'Légumes, Curry, Lait de Coco','2025-03-08', '2025-03-10', 4);
+INSERT INTO Plat (nom,  type_plat, nationalite_plat, prix, ingredients, nombre_portion, date_fabrication, date_peremption, id_cuisinier) VALUES
+('Ratatouille', 'Plat principal', 'Française', 12.50, 'Aubergines, Courgettes, Poivrons', 6, '2025-03-08', '2025-03-10', 1);
+INSERT INTO Plat (nom, type_plat, nationalite_plat, prix, ingredients, nombre_portion, date_fabrication, date_peremption, id_cuisinier) VALUES
+('Boeuf Bourguignon', 'Plat principal', 'Française', 15.00, 'Boeuf, Vin rouge, Carottes, Oignons',8 , '2025-03-08', '2025-03-10', 1),
+('Tarte Tatin',  'Dessert', 'Française', 8.50, 'Pommes, Sucre, Beurre', 6, '2025-03-09', '2025-03-11', 1),
+('Pâtes Carbonara', 'Plat principal', 'Italienne', 12.00, 'Pâtes, Œufs, Lardons, Parmesan', 5, '2025-03-08', '2025-03-10', 2),
+('Tiramisu',  'Dessert', 'Italienne', 7.00, 'Mascarpone, Café, Biscuits', 8, '2025-03-08', '2025-03-10', 2),
+('Sushi Varié', 'Plat principal', 'Japonaise', 18.00, 'Saumon, Riz, Algues', 9, '2025-03-07', '2025-03-09', 3),
+('Ramen au Porc',  'Plat principal', 'Japonaise', 14.50, 'Nouilles, Porc, Bouillon, Œuf', 6, '2025-03-07', '2025-03-09', 3),
+('Salade de Quinoa',  'Entrée', 'Végétarienne', 10.00, 'Quinoa, Tomates, Avocats', 7, '2025-03-08', '2025-03-10', 4),
+('Curry de Légumes',  'Plat principal', 'Indienne', 13.50, 'Légumes, Curry, Lait de Coco', 8,'2025-03-08', '2025-03-10', 4);
 
-INSERT INTO Commande (id_client, id_cuisinier, date_heure_commande, nombre_portion, statut_commande, adresse_livraison) VALUES
-(1, 1, NOW(), 2, 'Livré', '10 Rue Lafayette, 75009 Paris'),
-(1, 6, NOW(), 1, 'En attente', '10 Rue Lafayette, 75009 Paris'),
-(2, 7, NOW(), 2, 'En cours', '25 Avenue de Clichy, 75017 Paris'),
-(3, 7, NOW(), 3, 'Livré', '50 Boulevard Haussmann, 75008 Paris'),
-(4, 1, NOW(), 1, 'Livré', '5 Rue de Rennes, 75006 Paris');
+INSERT INTO Commande (id_client, id_cuisinier, id_plat, date_heure_commande, nombre_portion, statut_commande, adresse_livraison) 
+VALUES (1, 1, 6, NOW(), 2, 'En attente', '12 Rue de Paris');
+INSERT INTO Commande (id_client, id_cuisinier, id_plat, date_heure_commande, nombre_portion, statut_commande, adresse_livraison) VALUES
+(1, 1, 3, NOW(), 2, 'Livré', '10 Rue Lafayette, 75009 Paris'),
+(1, 6, 5, NOW(), 1, 'En attente', '10 Rue Lafayette, 75009 Paris'),
+(2, 7, 2, NOW(), 2, 'En cours', '25 Avenue de Clichy, 75017 Paris'),
+(3, 7, 1, NOW(), 3, 'Livré', '50 Boulevard Haussmann, 75008 Paris'),
+(4, 1, 4, NOW(), 1, 'Livré', '5 Rue de Rennes, 75006 Paris');
 
--- ⭐ Ajouter notations
-INSERT INTO Notation (id_client, id_cuisinier, note_attribuee, commentaire) VALUES
-(1, 1, 5.0, 'Excellente cuisine française, super boeuf bourguignon !'),
-(2, 3, 4.5, 'Très bons sushis, j’ai adoré !'),
-(3, 4, 4.0, 'Bon plat végétarien, mais un peu trop épicé pour moi.'),
-(4, 1, 4.8, 'Délicieux dessert, la tarte tatin était parfaite !'),
-(1, 2, 4.2, 'Bonne carbonara mais un peu trop salée.');
+INSERT INTO Notation (id_commande, id_client, id_cuisinier, note_attribuee, commentaire) VALUES
+(1, 1, 1, 4.5, 'Très bon repas !'),
+(2, 1, 1, 5.0, 'Excellente cuisine française, super boeuf bourguignon !'),
+(3, 2, 3, 4.5, 'Très bons sushis, j’ai adoré !'),
+(4, 3, 4, 4.0, 'Bon plat végétarien, mais un peu trop épicé pour moi.'),
+(5, 4, 1, 4.8, 'Délicieux dessert, la tarte tatin était parfaite !'),
+(6, 1, 2, 4.2, 'Bonne carbonara mais un peu trop salée.');
+
 
 
 INSERT INTO Cuisiner (id_cuisinier, id_plat) VALUES (1, 1);
@@ -163,10 +161,8 @@ SELECT * FROM Client;
 SELECT * FROM Cuisinier;
 SELECT * FROM Commande WHERE statut_commande = 'En attente';
 SELECT * FROM Commande ;
-
+SELECT * FROM plat ;
 -- test
 SELECT AVG(note_attribuee) AS moyenne_notes FROM Notation WHERE id_cuisinier = 1;
 
--- rendre le code avec des fonctions plus basiques Console.WriteLine("\nBonjour Cuisinier "+prenom+" !");Console.WriteLine("\nBonjour Cuisinier "+prenom+" !");
 
--- envoyer une commande pour cuisinier statut en attent devient en cours client valide la reception statut livré et accès à la notation du cuisinier

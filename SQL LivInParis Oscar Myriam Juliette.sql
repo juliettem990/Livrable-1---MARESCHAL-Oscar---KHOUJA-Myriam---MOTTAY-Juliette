@@ -45,7 +45,6 @@ CREATE TABLE Plat (
     id_cuisinier INT NOT NULL,
     nom VARCHAR(100) NOT NULL,
     photo VARCHAR(255),
-    nombre_personne INT NOT NULL,
     type_plat VARCHAR(50) NOT NULL,
     nationalite_plat VARCHAR(50) NOT NULL,
     prix DECIMAL(10,2) NOT NULL,
@@ -122,17 +121,17 @@ INSERT INTO Cuisinier (id_cuisinier, nom, prenom, rue, numeroRue, codePostal, vi
 (6, 'Tanaka', 'Hiroshi', 'Rue Saint-Honoré', '88', 75001, 'Paris', 'Palais Royal', 'hiroshi.tanaka@email.com', '0627185746', 'Cuisine Japonaise', 'test', 0.0),
 (7, 'Patel', 'Aisha', 'Boulevard Voltaire', '12', 75011, 'Paris', 'Oberkampf', 'aisha.patel@email.com', '0607869572', 'Cuisine Indienne', 'test', 0.0);
 
-INSERT INTO Plat (nom, nombre_personne, type_plat, nationalite_plat, prix, ingredients, nombre_portion, date_fabrication, date_peremption, id_cuisinier) VALUES
-('Ratatouille', 2, 'Plat principal', 'Française', 12.50, 'Aubergines, Courgettes, Poivrons', 6, '2025-03-08', '2025-03-10', 1);
-INSERT INTO Plat (nom, nombre_personne, type_plat, nationalite_plat, prix, ingredients, nombre_portion, date_fabrication, date_peremption, id_cuisinier) VALUES
-('Boeuf Bourguignon', 2, 'Plat principal', 'Française', 15.00, 'Boeuf, Vin rouge, Carottes, Oignons',8 , '2025-03-08', '2025-03-10', 1),
-('Tarte Tatin', 4, 'Dessert', 'Française', 8.50, 'Pommes, Sucre, Beurre', 6, '2025-03-09', '2025-03-11', 1),
-('Pâtes Carbonara', 3, 'Plat principal', 'Italienne', 12.00, 'Pâtes, Œufs, Lardons, Parmesan', 5, '2025-03-08', '2025-03-10', 2),
-('Tiramisu', 2, 'Dessert', 'Italienne', 7.00, 'Mascarpone, Café, Biscuits', 8, '2025-03-08', '2025-03-10', 2),
-('Sushi Varié', 2, 'Plat principal', 'Japonaise', 18.00, 'Saumon, Riz, Algues', 9, '2025-03-07', '2025-03-09', 3),
-('Ramen au Porc', 1, 'Plat principal', 'Japonaise', 14.50, 'Nouilles, Porc, Bouillon, Œuf', 6, '2025-03-07', '2025-03-09', 3),
-('Salade de Quinoa', 3, 'Entrée', 'Végétarienne', 10.00, 'Quinoa, Tomates, Avocats', 7, '2025-03-08', '2025-03-10', 4),
-('Curry de Légumes', 2, 'Plat principal', 'Indienne', 13.50, 'Légumes, Curry, Lait de Coco', 8,'2025-03-08', '2025-03-10', 4);
+INSERT INTO Plat (nom,  type_plat, nationalite_plat, prix, ingredients, nombre_portion, date_fabrication, date_peremption, id_cuisinier) VALUES
+('Ratatouille', 'Plat principal', 'Française', 12.50, 'Aubergines, Courgettes, Poivrons', 6, '2025-03-08', '2025-03-10', 1);
+INSERT INTO Plat (nom, type_plat, nationalite_plat, prix, ingredients, nombre_portion, date_fabrication, date_peremption, id_cuisinier) VALUES
+('Boeuf Bourguignon', 'Plat principal', 'Française', 15.00, 'Boeuf, Vin rouge, Carottes, Oignons',8 , '2025-03-08', '2025-03-10', 1),
+('Tarte Tatin',  'Dessert', 'Française', 8.50, 'Pommes, Sucre, Beurre', 6, '2025-03-09', '2025-03-11', 1),
+('Pâtes Carbonara', 'Plat principal', 'Italienne', 12.00, 'Pâtes, Œufs, Lardons, Parmesan', 5, '2025-03-08', '2025-03-10', 2),
+('Tiramisu',  'Dessert', 'Italienne', 7.00, 'Mascarpone, Café, Biscuits', 8, '2025-03-08', '2025-03-10', 2),
+('Sushi Varié', 'Plat principal', 'Japonaise', 18.00, 'Saumon, Riz, Algues', 9, '2025-03-07', '2025-03-09', 3),
+('Ramen au Porc',  'Plat principal', 'Japonaise', 14.50, 'Nouilles, Porc, Bouillon, Œuf', 6, '2025-03-07', '2025-03-09', 3),
+('Salade de Quinoa',  'Entrée', 'Végétarienne', 10.00, 'Quinoa, Tomates, Avocats', 7, '2025-03-08', '2025-03-10', 4),
+('Curry de Légumes',  'Plat principal', 'Indienne', 13.50, 'Légumes, Curry, Lait de Coco', 8,'2025-03-08', '2025-03-10', 4);
 
 INSERT INTO Commande (id_client, id_cuisinier, id_plat, date_heure_commande, nombre_portion, statut_commande, adresse_livraison) 
 VALUES (1, 1, 6, NOW(), 2, 'En attente', '12 Rue de Paris');

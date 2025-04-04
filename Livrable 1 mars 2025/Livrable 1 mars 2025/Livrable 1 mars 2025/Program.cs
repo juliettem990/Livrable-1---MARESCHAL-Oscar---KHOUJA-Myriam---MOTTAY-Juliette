@@ -18,6 +18,10 @@ namespace Livrable_2_MARESCHAL_Oscar_KHOUJA_Myriam_MOTTAY_Juliette
 
         static void Main()
         {
+            Console.WriteLine("**************************************");
+            Console.WriteLine("*             LiveInParis            *");
+            Console.WriteLine("**************************************");
+            Console.WriteLine("\nBienvenue sur LiveInParis, votre application de commande de plats faits maison !"); 
             while (true)
             {
                 Console.WriteLine("1. Se connecter");

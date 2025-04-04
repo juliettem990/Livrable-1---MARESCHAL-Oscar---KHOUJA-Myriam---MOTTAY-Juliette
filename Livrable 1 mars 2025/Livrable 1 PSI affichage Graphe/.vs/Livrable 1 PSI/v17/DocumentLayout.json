@@ -1,0 +1,200 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Dell7490\\source\\repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4BCD1638-6D8D-4570-AC83-C004E83DC6CA}|TestProject1\\TestsMetro.csproj|c:\\users\\dell7490\\source\\repos\\livrable-1---mareschal-oscar---khouja-myriam---mottay-juliette\\livrable 1\\livrable 1 psi affichage graphe\\testproject1\\graphemetrotests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BCD1638-6D8D-4570-AC83-C004E83DC6CA}|TestProject1\\TestsMetro.csproj|solutionrelative:testproject1\\graphemetrotests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BCD1638-6D8D-4570-AC83-C004E83DC6CA}|TestProject1\\TestsMetro.csproj|c:\\users\\dell7490\\source\\repos\\livrable-1---mareschal-oscar---khouja-myriam---mottay-juliette\\livrable 1\\livrable 1 psi affichage graphe\\testproject1\\testsmetro.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4BCD1638-6D8D-4570-AC83-C004E83DC6CA}|TestProject1\\TestsMetro.csproj|solutionrelative:testproject1\\testsmetro.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9B436DC-ABD2-4992-96F4-BFE4FF1AE7F1}|Livrable 1 PSI\\Livrable 1 PSI.csproj|c:\\users\\dell7490\\source\\repos\\livrable-1---mareschal-oscar---khouja-myriam---mottay-juliette\\livrable 1\\livrable 1 psi affichage graphe\\livrable 1 psi\\graphemetro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9B436DC-ABD2-4992-96F4-BFE4FF1AE7F1}|Livrable 1 PSI\\Livrable 1 PSI.csproj|solutionrelative:livrable 1 psi\\graphemetro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9B436DC-ABD2-4992-96F4-BFE4FF1AE7F1}|Livrable 1 PSI\\Livrable 1 PSI.csproj|C:\\Users\\Dell7490\\source\\repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\livrable 1 psi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9B436DC-ABD2-4992-96F4-BFE4FF1AE7F1}|Livrable 1 PSI\\Livrable 1 PSI.csproj|solutionrelative:livrable 1 psi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dell7490\\Downloads\\MetroParis(Noeuds).csv||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9B436DC-ABD2-4992-96F4-BFE4FF1AE7F1}|Livrable 1 PSI\\Livrable 1 PSI.csproj|C:\\Users\\Dell7490\\source\\repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\livrable 1 psi\\station.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9B436DC-ABD2-4992-96F4-BFE4FF1AE7F1}|Livrable 1 PSI\\Livrable 1 PSI.csproj|solutionrelative:livrable 1 psi\\station.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9B436DC-ABD2-4992-96F4-BFE4FF1AE7F1}|Livrable 1 PSI\\Livrable 1 PSI.csproj|C:\\Users\\Dell7490\\source\\repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\livrable 1 psi\\metroparis(arcs).csv||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A9B436DC-ABD2-4992-96F4-BFE4FF1AE7F1}|Livrable 1 PSI\\Livrable 1 PSI.csproj|solutionrelative:livrable 1 psi\\metroparis(arcs).csv||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9B436DC-ABD2-4992-96F4-BFE4FF1AE7F1}|Livrable 1 PSI\\Livrable 1 PSI.csproj|C:\\Users\\Dell7490\\source\\repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\livrable 1 psi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A9B436DC-ABD2-4992-96F4-BFE4FF1AE7F1}|Livrable 1 PSI\\Livrable 1 PSI.csproj|solutionrelative:livrable 1 psi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dell7490\\OneDrive\\Desktop\\MetroParis(Noeuds).csv||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dell7490\\OneDrive\\Desktop\\MetroParis(Arcs).csv||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\julie\\AppData\\Local\\Temp\\76331a52-39bd-4e64-956f-01f523268b0f_Association-soc-karate.zip.b0f\\soc-karate.mtx||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TestsMetro.csproj",
+              "DocumentMoniker": "C:\\Users\\Dell7490\\Source\\Repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\TestProject1\\TestsMetro.csproj",
+              "RelativeDocumentMoniker": "TestProject1\\TestsMetro.csproj",
+              "ToolTip": "C:\\Users\\Dell7490\\Source\\Repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\TestProject1\\TestsMetro.csproj",
+              "RelativeToolTip": "TestProject1\\TestsMetro.csproj",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-04T13:04:35.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GrapheMetroTests.cs",
+              "DocumentMoniker": "C:\\Users\\Dell7490\\Source\\Repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\TestProject1\\GrapheMetroTests.cs",
+              "RelativeDocumentMoniker": "TestProject1\\GrapheMetroTests.cs",
+              "ToolTip": "C:\\Users\\Dell7490\\Source\\Repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\TestProject1\\GrapheMetroTests.cs",
+              "RelativeToolTip": "TestProject1\\GrapheMetroTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T13:04:14.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Station.cs",
+              "DocumentMoniker": "C:\\Users\\Dell7490\\source\\repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\Livrable 1 PSI\\Station.cs",
+              "RelativeDocumentMoniker": "Livrable 1 PSI\\Station.cs",
+              "ToolTip": "C:\\Users\\Dell7490\\source\\repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\Livrable 1 PSI\\Station.cs",
+              "RelativeToolTip": "Livrable 1 PSI\\Station.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAA0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T11:18:17.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MetroParis(Arcs).csv",
+              "DocumentMoniker": "C:\\Users\\Dell7490\\source\\repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\Livrable 1 PSI\\MetroParis(Arcs).csv",
+              "RelativeDocumentMoniker": "Livrable 1 PSI\\MetroParis(Arcs).csv",
+              "ToolTip": "C:\\Users\\Dell7490\\source\\repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\Livrable 1 PSI\\MetroParis(Arcs).csv",
+              "RelativeToolTip": "Livrable 1 PSI\\MetroParis(Arcs).csv",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
+              "WhenOpened": "2025-04-01T13:21:48.543Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GrapheMetro.cs",
+              "DocumentMoniker": "C:\\Users\\Dell7490\\source\\repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\Livrable 1 PSI\\GrapheMetro.cs",
+              "RelativeDocumentMoniker": "Livrable 1 PSI\\GrapheMetro.cs",
+              "ToolTip": "C:\\Users\\Dell7490\\source\\repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\Livrable 1 PSI\\GrapheMetro.cs",
+              "RelativeToolTip": "Livrable 1 PSI\\GrapheMetro.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAkwGkAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T11:20:49.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Dell7490\\source\\repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\Livrable 1 PSI\\Program.cs",
+              "RelativeDocumentMoniker": "Livrable 1 PSI\\Program.cs",
+              "ToolTip": "C:\\Users\\Dell7490\\source\\repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\Livrable 1 PSI\\Program.cs",
+              "RelativeToolTip": "Livrable 1 PSI\\Program.cs",
+              "ViewState": "AgIAALIAAAAAAAAAAADwv00AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T11:16:52.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MetroParis(Noeuds).csv",
+              "DocumentMoniker": "C:\\Users\\Dell7490\\Downloads\\MetroParis(Noeuds).csv",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Downloads\\MetroParis(Noeuds).csv",
+              "ToolTip": "C:\\Users\\Dell7490\\Downloads\\MetroParis(Noeuds).csv",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Downloads\\MetroParis(Noeuds).csv",
+              "ViewState": "AgIAADMAAAAAAAAAAABBwJ0AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
+              "WhenOpened": "2025-04-01T17:03:36.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Dell7490\\source\\repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\Livrable 1 PSI\\Program.cs",
+              "RelativeDocumentMoniker": "Livrable 1 PSI\\Program.cs",
+              "ToolTip": "C:\\Users\\Dell7490\\source\\repos\\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\\Livrable 1\\Livrable 1 PSI affichage Graphe\\Livrable 1 PSI\\Program.cs [Design]",
+              "RelativeToolTip": "Livrable 1 PSI\\Program.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T21:37:06.498Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MetroParis(Noeuds).csv",
+              "DocumentMoniker": "C:\\Users\\Dell7490\\OneDrive\\Desktop\\MetroParis(Noeuds).csv",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\OneDrive\\Desktop\\MetroParis(Noeuds).csv",
+              "ToolTip": "C:\\Users\\Dell7490\\OneDrive\\Desktop\\MetroParis(Noeuds).csv",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\OneDrive\\Desktop\\MetroParis(Noeuds).csv",
+              "ViewState": "AgIAAKYAAAAAAAAAAABBwKcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
+              "WhenOpened": "2025-04-01T12:42:07.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MetroParis(Arcs).csv",
+              "DocumentMoniker": "C:\\Users\\Dell7490\\OneDrive\\Desktop\\MetroParis(Arcs).csv",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\OneDrive\\Desktop\\MetroParis(Arcs).csv",
+              "ToolTip": "C:\\Users\\Dell7490\\OneDrive\\Desktop\\MetroParis(Arcs).csv",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\OneDrive\\Desktop\\MetroParis(Arcs).csv",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
+              "WhenOpened": "2025-04-01T12:42:17.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "soc-karate.mtx",
+              "DocumentMoniker": "C:\\Users\\julie\\AppData\\Local\\Temp\\76331a52-39bd-4e64-956f-01f523268b0f_Association-soc-karate.zip.b0f\\soc-karate.mtx",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\julie\\AppData\\Local\\Temp\\76331a52-39bd-4e64-956f-01f523268b0f_Association-soc-karate.zip.b0f\\soc-karate.mtx",
+              "ToolTip": "C:\\Users\\julie\\AppData\\Local\\Temp\\76331a52-39bd-4e64-956f-01f523268b0f_Association-soc-karate.zip.b0f\\soc-karate.mtx",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\julie\\AppData\\Local\\Temp\\76331a52-39bd-4e64-956f-01f523268b0f_Association-soc-karate.zip.b0f\\soc-karate.mtx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001794|",
+              "WhenOpened": "2025-02-25T12:08:13.851Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

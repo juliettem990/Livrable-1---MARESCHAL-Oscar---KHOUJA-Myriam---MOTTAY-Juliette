@@ -1,0 +1,13 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TestsMetro
+build_property.ProjectDir = C:\Users\Dell7490\Source\Repos\Livrable-1---MARESCHAL-Oscar---KHOUJA-Myriam---MOTTAY-Juliette\Livrable 1\Livrable 1 PSI affichage Graphe\TestProject1\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
