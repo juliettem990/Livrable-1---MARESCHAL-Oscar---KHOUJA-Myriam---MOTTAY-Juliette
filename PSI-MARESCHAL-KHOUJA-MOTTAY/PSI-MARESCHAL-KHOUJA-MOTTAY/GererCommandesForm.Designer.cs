@@ -40,6 +40,8 @@
             this.btnModifierCommande = new System.Windows.Forms.Button();
             this.btnSupprimerCommande = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
+            this.btnXML = new System.Windows.Forms.Button();
+            this.btnJSON = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCommandes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,12 +99,38 @@
             this.btnAnnuler.UseVisualStyleBackColor = false;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
+            // btnXML
+            // 
+            this.btnXML.BackColor = System.Drawing.Color.MistyRose;
+            this.btnXML.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXML.Location = new System.Drawing.Point(483, 498);
+            this.btnXML.Name = "btnXML";
+            this.btnXML.Size = new System.Drawing.Size(264, 37);
+            this.btnXML.TabIndex = 8;
+            this.btnXML.Text = "Exporter données XML";
+            this.btnXML.UseVisualStyleBackColor = false;
+            this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
+            // 
+            // btnJSON
+            // 
+            this.btnJSON.BackColor = System.Drawing.Color.MistyRose;
+            this.btnJSON.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnJSON.Location = new System.Drawing.Point(136, 498);
+            this.btnJSON.Name = "btnJSON";
+            this.btnJSON.Size = new System.Drawing.Size(285, 37);
+            this.btnJSON.TabIndex = 7;
+            this.btnJSON.Text = "Exporter données JSON";
+            this.btnJSON.UseVisualStyleBackColor = false;
+            this.btnJSON.Click += new System.EventHandler(this.btnJSON_Click);
+            // 
             // GererCommandesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(952, 783);
+            this.Controls.Add(this.btnXML);
+            this.Controls.Add(this.btnJSON);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnSupprimerCommande);
             this.Controls.Add(this.btnModifierCommande);
@@ -119,5 +147,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnXML;
+        private System.Windows.Forms.Button btnJSON;
     }
 }

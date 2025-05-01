@@ -99,12 +99,14 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                     {
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Inscription réussie !");
-                        this.Close();
+                        mainForm.Show(); 
+                        this.Close();    
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Erreur lors de l'inscription : " + ex.Message);
                     }
+
                 }
             }
         }

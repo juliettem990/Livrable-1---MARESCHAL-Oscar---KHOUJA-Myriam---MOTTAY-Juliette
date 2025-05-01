@@ -99,6 +99,11 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             var formCarte = new MetroForm(graphe);
             formCarte.Show();
         }
+
+        private void lblInfos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

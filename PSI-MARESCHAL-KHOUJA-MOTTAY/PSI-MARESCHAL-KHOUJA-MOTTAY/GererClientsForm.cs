@@ -9,6 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PSI_MARESCHAL_KHOUJA_MOTTAY;
+using System.IO;
+using Newtonsoft.Json;
+//using System.Text.Json; // pour JSON
+using System.Xml.Serialization; // pour XML
 
 namespace PSI_MARESCHAL_KHOUJA_MOTTAY
 {
@@ -86,5 +90,75 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
         {
             this.Close();
         }
+
+        private void btnJSON_Click(object sender, EventArgs e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(Program.connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Client", conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                string json = JsonConvert.SerializeObject(dt, Formatting.Indented);
+
+                //string json = System.Text.Json.JsonSerializer.Serialize(dt, new System.Text.Json.JsonSerializerOptions
+                //{
+                   // WriteIndented = true
+                //});
+
+                File.WriteAllText("clients.json", json);
+                //MessageBox.Show("Export JSON terminé !");
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                {
+                    saveFileDialog.Filter = "Fichiers JSON (*.json)|*.json";
+                    saveFileDialog.Title = "Enregistrer les clients au format JSON";
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        File.WriteAllText(saveFileDialog.FileName, json);
+                        MessageBox.Show("Export JSON réussi !");
+                    }
+                }
+
+            }
+        }
+
+
+        private void btnXML_Click(object sender, EventArgs e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(Program.connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Client", conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable("Client");
+                adapter.Fill(dt);
+
+                DataSet ds = new DataSet("Clients");
+                ds.Tables.Add(dt);
+
+                // Boîte de dialogue pour enregistrer le fichier XML
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                {
+                    saveFileDialog.Filter = "Fichiers XML (*.xml)|*.xml";
+                    saveFileDialog.Title = "Enregistrer les clients au format XML";
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Écrire le fichier XML à l'emplacement choisi par l'utilisateur
+                        ds.WriteXml(saveFileDialog.FileName, XmlWriteMode.WriteSchema);
+                        MessageBox.Show("Export XML réussi !");
+                    }
+                    else
+                    {
+                        MessageBox.Show("L'exportation a été annulée.");
+                    }
+                }
+            }
+        }
+
+
+
     }
 }

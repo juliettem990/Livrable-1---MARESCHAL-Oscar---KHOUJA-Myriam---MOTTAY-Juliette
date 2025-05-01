@@ -1,0 +1,93 @@
+[
+  {
+    "id_client": 1,
+    "nom": "Dupon",
+    "prenom": "Jean",
+    "email": "jean.dupon@email.com",
+    "rue": "Rue Cardinet",
+    "numeroRue": "15",
+    "codePostal": 75017,
+    "ville": "Paris",
+    "metroLePlusProche": "Cardinet",
+    "telephone": "0600000000",
+    "mot_de_passe": "test"
+  },
+  {
+    "id_client": 2,
+    "nom": "Durand",
+    "prenom": "Alice",
+    "email": "alice.durand@email.com",
+    "rue": "Rue Lafayette",
+    "numeroRue": "10",
+    "codePostal": 75009,
+    "ville": "Paris",
+    "metroLePlusProche": "Cadet",
+    "telephone": "0601234567",
+    "mot_de_passe": "test"
+  },
+  {
+    "id_client": 3,
+    "nom": "Bernard",
+    "prenom": "Lucas",
+    "email": "lucas.bernard@email.com",
+    "rue": "Avenue de Clichy",
+    "numeroRue": "25",
+    "codePostal": 75017,
+    "ville": "Paris",
+    "metroLePlusProche": "Brochant",
+    "telephone": "0612345678",
+    "mot_de_passe": "test"
+  },
+  {
+    "id_client": 4,
+    "nom": "Morel",
+    "prenom": "Sophie",
+    "email": "sophie.morel@email.com",
+    "rue": "Boulevard Haussmann",
+    "numeroRue": "50",
+    "codePostal": 75008,
+    "ville": "Paris",
+    "metroLePlusProche": "Havre-Caumartin",
+    "telephone": "0623456789",
+    "mot_de_passe": "test"
+  },
+  {
+    "id_client": 5,
+    "nom": "Rousseau",
+    "prenom": "Pierre",
+    "email": "pierre.rousseau@email.com",
+    "rue": "Rue de Rennes",
+    "numeroRue": "5",
+    "codePostal": 75006,
+    "ville": "Paris",
+    "metroLePlusProche": "Saint-Placide",
+    "telephone": "0634567890",
+    "mot_de_passe": "test"
+  },
+  {
+    "id_client": 6,
+    "nom": "Mot",
+    "prenom": "ju",
+    "email": "ju.mot@e.com",
+    "rue": "Rue de Nantes",
+    "numeroRue": "24",
+    "codePostal": 75009,
+    "ville": "Paris",
+    "metroLePlusProche": "Cadet",
+    "telephone": "0685930589",
+    "mot_de_passe": "test"
+  },
+  {
+    "id_client": 9,
+    "nom": "titi",
+    "prenom": "toto",
+    "email": "toto",
+    "rue": "toto",
+    "numeroRue": "4",
+    "codePostal": 75000,
+    "ville": "Paris",
+    "metroLePlusProche": "Pont Cardinet",
+    "telephone": "0789498267",
+    "mot_de_passe": "test"
+  }
+]

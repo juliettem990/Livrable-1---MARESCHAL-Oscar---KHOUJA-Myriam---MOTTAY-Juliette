@@ -41,17 +41,19 @@
             this.btnModifierCuisinier = new System.Windows.Forms.Button();
             this.btnSupprimerCuisinier = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
+            this.btnXML = new System.Windows.Forms.Button();
+            this.btnJSON = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuisiniers)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewCuisiniers
             // 
             this.dataGridViewCuisiniers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCuisiniers.Location = new System.Drawing.Point(165, 288);
+            this.dataGridViewCuisiniers.Location = new System.Drawing.Point(225, 288);
             this.dataGridViewCuisiniers.Name = "dataGridViewCuisiniers";
             this.dataGridViewCuisiniers.RowHeadersWidth = 51;
             this.dataGridViewCuisiniers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCuisiniers.Size = new System.Drawing.Size(554, 257);
+            this.dataGridViewCuisiniers.Size = new System.Drawing.Size(494, 200);
             this.dataGridViewCuisiniers.TabIndex = 0;
             // 
             // btnAjouterCuisinier
@@ -98,12 +100,38 @@
             this.btnAnnuler.UseVisualStyleBackColor = false;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
+            // btnXML
+            // 
+            this.btnXML.BackColor = System.Drawing.Color.MistyRose;
+            this.btnXML.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXML.Location = new System.Drawing.Point(518, 515);
+            this.btnXML.Name = "btnXML";
+            this.btnXML.Size = new System.Drawing.Size(201, 62);
+            this.btnXML.TabIndex = 8;
+            this.btnXML.Text = "Exporter données XML";
+            this.btnXML.UseVisualStyleBackColor = false;
+            this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
+            // 
+            // btnJSON
+            // 
+            this.btnJSON.BackColor = System.Drawing.Color.MistyRose;
+            this.btnJSON.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnJSON.Location = new System.Drawing.Point(225, 515);
+            this.btnJSON.Name = "btnJSON";
+            this.btnJSON.Size = new System.Drawing.Size(244, 62);
+            this.btnJSON.TabIndex = 7;
+            this.btnJSON.Text = "Exporter données JSON";
+            this.btnJSON.UseVisualStyleBackColor = false;
+            this.btnJSON.Click += new System.EventHandler(this.btnJSON_Click);
+            // 
             // GererCuisinierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(952, 783);
+            this.Controls.Add(this.btnXML);
+            this.Controls.Add(this.btnJSON);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnSupprimerCuisinier);
             this.Controls.Add(this.btnModifierCuisinier);
@@ -120,5 +148,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnXML;
+        private System.Windows.Forms.Button btnJSON;
     }
 }

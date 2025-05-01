@@ -40,6 +40,7 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AfficherGraphe));
             this.lblInfos = new System.Windows.Forms.Label();
             this.btnCarte = new System.Windows.Forms.Button();
             this.btnItineraire = new System.Windows.Forms.Button();
@@ -49,28 +50,34 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             // 
             // lblInfos
             // 
+            this.lblInfos.BackColor = System.Drawing.Color.Transparent;
             this.lblInfos.Location = new System.Drawing.Point(20, 20);
             this.lblInfos.Name = "lblInfos";
             this.lblInfos.Size = new System.Drawing.Size(300, 20);
             this.lblInfos.TabIndex = 0;
             this.lblInfos.Text = "Chargement...";
+            this.lblInfos.Click += new System.EventHandler(this.lblInfos_Click);
             // 
             // btnCarte
             // 
+            this.btnCarte.BackColor = System.Drawing.Color.MistyRose;
             this.btnCarte.Location = new System.Drawing.Point(23, 100);
             this.btnCarte.Name = "btnCarte";
             this.btnCarte.Size = new System.Drawing.Size(75, 23);
             this.btnCarte.TabIndex = 3;
             this.btnCarte.Text = "Afficher carte";
+            this.btnCarte.UseVisualStyleBackColor = false;
             this.btnCarte.Click += new System.EventHandler(this.btnCarte_Click);
             // 
             // btnItineraire
             // 
+            this.btnItineraire.BackColor = System.Drawing.Color.MistyRose;
             this.btnItineraire.Location = new System.Drawing.Point(130, 100);
             this.btnItineraire.Name = "btnItineraire";
             this.btnItineraire.Size = new System.Drawing.Size(75, 23);
             this.btnItineraire.TabIndex = 4;
             this.btnItineraire.Text = "Chercher itinéraire";
+            this.btnItineraire.UseVisualStyleBackColor = false;
             this.btnItineraire.Click += new System.EventHandler(this.btnItineraire_Click);
             // 
             // txtDepart
@@ -91,15 +98,17 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1019, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(262, 153);
             this.Controls.Add(this.lblInfos);
             this.Controls.Add(this.txtDepart);
             this.Controls.Add(this.txtArrivee);
             this.Controls.Add(this.btnCarte);
             this.Controls.Add(this.btnItineraire);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AfficherGraphe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Itinéraire";
             this.ResumeLayout(false);
             this.PerformLayout();
 

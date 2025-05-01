@@ -66,7 +66,7 @@
             // lblTitreAvis
             // 
             this.lblTitreAvis.AutoSize = true;
-            this.lblTitreAvis.BackColor = System.Drawing.Color.MistyRose;
+            this.lblTitreAvis.BackColor = System.Drawing.Color.Transparent;
             this.lblTitreAvis.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.lblTitreAvis.Location = new System.Drawing.Point(30, 60);
             this.lblTitreAvis.Name = "lblTitreAvis";
@@ -77,7 +77,7 @@
             // lblAucunAvis
             // 
             this.lblAucunAvis.AutoSize = true;
-            this.lblAucunAvis.BackColor = System.Drawing.Color.MistyRose;
+            this.lblAucunAvis.BackColor = System.Drawing.Color.Transparent;
             this.lblAucunAvis.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblAucunAvis.ForeColor = System.Drawing.Color.DarkRed;
             this.lblAucunAvis.Location = new System.Drawing.Point(30, 90);

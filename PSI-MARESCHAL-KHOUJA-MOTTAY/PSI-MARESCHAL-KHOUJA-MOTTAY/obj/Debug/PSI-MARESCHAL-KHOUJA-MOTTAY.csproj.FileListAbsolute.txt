@@ -41,8 +41,6 @@ C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHO
 C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\obj\Debug\PSI-MARESCHAL-KHOUJA-MOTTAY.csproj.SuggestedBindingRedirects.cache
-C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\obj\Debug\PSI-MARESCHAL-KHOUJA-MOTTAY.exe.config
 C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\obj\Debug\PSI-MARESCHAL-KHOUJA-MOTTAY.csproj.CopyComplete
 C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\obj\Debug\PSI_MARESCHAL_KHOUJA_MOTTAY.CuisinierMenuForm.resources
 C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\obj\Debug\PSI_MARESCHAL_KHOUJA_MOTTAY.ClientMenuForm.resources
@@ -70,3 +68,6 @@ C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHO
 C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\obj\Debug\PSI_MARESCHAL_KHOUJA_MOTTAY.ValiderReceptionCommandeForm.resources
 C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\obj\Debug\PSI_MARESCHAL_KHOUJA_MOTTAY.VoirCommandesClientForm.resources
 C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\obj\Debug\PSI_MARESCHAL_KHOUJA_MOTTAY.AdminMenuForm.resources
+C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\bin\Debug\Newtonsoft.Json.dll
+C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\bin\Debug\Newtonsoft.Json.xml
+C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\obj\Debug\PSI_MARESCHAL_KHOUJA_MOTTAY.RegisterForm.resources

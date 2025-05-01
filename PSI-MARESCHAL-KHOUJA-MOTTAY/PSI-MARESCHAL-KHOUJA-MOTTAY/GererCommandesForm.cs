@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace PSI_MARESCHAL_KHOUJA_MOTTAY
 {
@@ -115,5 +117,75 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
         {
             this.Close();
         }
+
+        private void btnJSON_Click(object sender, EventArgs e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(Program.connectionString))
+            {
+                conn.Open();
+                // Modification de la requête pour récupérer les données de la table Commande
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Commande", conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                // Sérialisation des données en JSON
+                string json = JsonConvert.SerializeObject(dt, Formatting.Indented);
+
+                // Boîte de dialogue pour enregistrer le fichier JSON
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                {
+                    saveFileDialog.Filter = "Fichiers JSON (*.json)|*.json";
+                    saveFileDialog.Title = "Enregistrer les commandes au format JSON";
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Écrire le fichier JSON à l'emplacement choisi par l'utilisateur
+                        File.WriteAllText(saveFileDialog.FileName, json);
+                        MessageBox.Show("Export JSON réussi !");
+                    }
+                    else
+                    {
+                        MessageBox.Show("L'exportation a été annulée.");
+                    }
+                }
+            }
+        }
+
+
+        private void btnXML_Click(object sender, EventArgs e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(Program.connectionString))
+            {
+                conn.Open();
+                // Modification de la requête pour récupérer les données de la table Commande
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Commande", conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable("Commande");
+                adapter.Fill(dt);
+
+                DataSet ds = new DataSet("Commandes");
+                ds.Tables.Add(dt);
+
+                // Boîte de dialogue pour enregistrer le fichier XML
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                {
+                    saveFileDialog.Filter = "Fichiers XML (*.xml)|*.xml";
+                    saveFileDialog.Title = "Enregistrer les commandes au format XML";
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Écrire le fichier XML à l'emplacement choisi par l'utilisateur
+                        ds.WriteXml(saveFileDialog.FileName, XmlWriteMode.WriteSchema);
+                        MessageBox.Show("Export XML réussi !");
+                    }
+                    else
+                    {
+                        MessageBox.Show("L'exportation a été annulée.");
+                    }
+                }
+            }
+        }
+
     }
 }

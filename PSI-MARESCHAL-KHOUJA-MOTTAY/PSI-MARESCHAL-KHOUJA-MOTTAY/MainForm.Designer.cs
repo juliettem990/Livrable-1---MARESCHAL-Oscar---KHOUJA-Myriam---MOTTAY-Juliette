@@ -119,7 +119,7 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.BackColor = System.Drawing.Color.MistyRose;
+            this.lblWelcome.BackColor = System.Drawing.Color.Transparent;
             this.lblWelcome.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcome.Location = new System.Drawing.Point(157, 28);
             this.lblWelcome.Name = "lblWelcome";

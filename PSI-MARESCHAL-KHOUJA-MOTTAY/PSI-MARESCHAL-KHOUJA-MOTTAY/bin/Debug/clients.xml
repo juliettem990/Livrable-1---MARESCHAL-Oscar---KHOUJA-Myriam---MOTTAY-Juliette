@@ -1,0 +1,119 @@
+<?xml version="1.0" standalone="yes"?>
+<Clients>
+  <xs:schema id="Clients" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="Clients" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Client">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="id_client" type="xs:int" minOccurs="0" />
+                <xs:element name="nom" type="xs:string" minOccurs="0" />
+                <xs:element name="prenom" type="xs:string" minOccurs="0" />
+                <xs:element name="email" type="xs:string" minOccurs="0" />
+                <xs:element name="rue" type="xs:string" minOccurs="0" />
+                <xs:element name="numeroRue" type="xs:string" minOccurs="0" />
+                <xs:element name="codePostal" type="xs:int" minOccurs="0" />
+                <xs:element name="ville" type="xs:string" minOccurs="0" />
+                <xs:element name="metroLePlusProche" type="xs:string" minOccurs="0" />
+                <xs:element name="telephone" type="xs:string" minOccurs="0" />
+                <xs:element name="mot_de_passe" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Client>
+    <id_client>1</id_client>
+    <nom>Dupon</nom>
+    <prenom>Jean</prenom>
+    <email>jean.dupon@email.com</email>
+    <rue>Rue Cardinet</rue>
+    <numeroRue>15</numeroRue>
+    <codePostal>75017</codePostal>
+    <ville>Paris</ville>
+    <metroLePlusProche>Cardinet</metroLePlusProche>
+    <telephone>0600000000</telephone>
+    <mot_de_passe>test</mot_de_passe>
+  </Client>
+  <Client>
+    <id_client>2</id_client>
+    <nom>Durand</nom>
+    <prenom>Alice</prenom>
+    <email>alice.durand@email.com</email>
+    <rue>Rue Lafayette</rue>
+    <numeroRue>10</numeroRue>
+    <codePostal>75009</codePostal>
+    <ville>Paris</ville>
+    <metroLePlusProche>Cadet</metroLePlusProche>
+    <telephone>0601234567</telephone>
+    <mot_de_passe>test</mot_de_passe>
+  </Client>
+  <Client>
+    <id_client>3</id_client>
+    <nom>Bernard</nom>
+    <prenom>Lucas</prenom>
+    <email>lucas.bernard@email.com</email>
+    <rue>Avenue de Clichy</rue>
+    <numeroRue>25</numeroRue>
+    <codePostal>75017</codePostal>
+    <ville>Paris</ville>
+    <metroLePlusProche>Brochant</metroLePlusProche>
+    <telephone>0612345678</telephone>
+    <mot_de_passe>test</mot_de_passe>
+  </Client>
+  <Client>
+    <id_client>4</id_client>
+    <nom>Morel</nom>
+    <prenom>Sophie</prenom>
+    <email>sophie.morel@email.com</email>
+    <rue>Boulevard Haussmann</rue>
+    <numeroRue>50</numeroRue>
+    <codePostal>75008</codePostal>
+    <ville>Paris</ville>
+    <metroLePlusProche>Havre-Caumartin</metroLePlusProche>
+    <telephone>0623456789</telephone>
+    <mot_de_passe>test</mot_de_passe>
+  </Client>
+  <Client>
+    <id_client>5</id_client>
+    <nom>Rousseau</nom>
+    <prenom>Pierre</prenom>
+    <email>pierre.rousseau@email.com</email>
+    <rue>Rue de Rennes</rue>
+    <numeroRue>5</numeroRue>
+    <codePostal>75006</codePostal>
+    <ville>Paris</ville>
+    <metroLePlusProche>Saint-Placide</metroLePlusProche>
+    <telephone>0634567890</telephone>
+    <mot_de_passe>test</mot_de_passe>
+  </Client>
+  <Client>
+    <id_client>6</id_client>
+    <nom>Mot</nom>
+    <prenom>ju</prenom>
+    <email>ju.mot@e.com</email>
+    <rue>Rue de Nantes</rue>
+    <numeroRue>24</numeroRue>
+    <codePostal>75009</codePostal>
+    <ville>Paris</ville>
+    <metroLePlusProche>Cadet</metroLePlusProche>
+    <telephone>0685930589</telephone>
+    <mot_de_passe>test</mot_de_passe>
+  </Client>
+  <Client>
+    <id_client>9</id_client>
+    <nom>titi</nom>
+    <prenom>toto</prenom>
+    <email>toto</email>
+    <rue>toto</rue>
+    <numeroRue>4</numeroRue>
+    <codePostal>75000</codePostal>
+    <ville>Paris</ville>
+    <metroLePlusProche>Pont Cardinet</metroLePlusProche>
+    <telephone>0789498267</telephone>
+    <mot_de_passe>test</mot_de_passe>
+  </Client>
+</Clients>

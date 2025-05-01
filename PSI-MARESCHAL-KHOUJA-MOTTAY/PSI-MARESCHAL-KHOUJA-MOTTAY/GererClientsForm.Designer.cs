@@ -40,6 +40,8 @@
             this.btnModifier = new System.Windows.Forms.Button();
             this.btnSupprimer = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
+            this.btnJSON = new System.Windows.Forms.Button();
+            this.btnXML = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,9 +58,10 @@
             // btnAjouter
             // 
             this.btnAjouter.BackColor = System.Drawing.Color.MistyRose;
+            this.btnAjouter.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjouter.Location = new System.Drawing.Point(753, 269);
             this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(120, 40);
+            this.btnAjouter.Size = new System.Drawing.Size(131, 40);
             this.btnAjouter.TabIndex = 1;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = false;
@@ -67,9 +70,10 @@
             // btnModifier
             // 
             this.btnModifier.BackColor = System.Drawing.Color.MistyRose;
+            this.btnModifier.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModifier.Location = new System.Drawing.Point(753, 358);
             this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(120, 40);
+            this.btnModifier.Size = new System.Drawing.Size(131, 40);
             this.btnModifier.TabIndex = 2;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.UseVisualStyleBackColor = false;
@@ -78,9 +82,10 @@
             // btnSupprimer
             // 
             this.btnSupprimer.BackColor = System.Drawing.Color.MistyRose;
+            this.btnSupprimer.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupprimer.Location = new System.Drawing.Point(753, 445);
             this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(120, 40);
+            this.btnSupprimer.Size = new System.Drawing.Size(131, 40);
             this.btnSupprimer.TabIndex = 3;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = false;
@@ -89,13 +94,38 @@
             // btnAnnuler
             // 
             this.btnAnnuler.BackColor = System.Drawing.Color.MistyRose;
+            this.btnAnnuler.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnnuler.Location = new System.Drawing.Point(753, 530);
             this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(120, 39);
+            this.btnAnnuler.Size = new System.Drawing.Size(131, 39);
             this.btnAnnuler.TabIndex = 4;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = false;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
+            // 
+            // btnJSON
+            // 
+            this.btnJSON.BackColor = System.Drawing.Color.MistyRose;
+            this.btnJSON.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnJSON.Location = new System.Drawing.Point(133, 607);
+            this.btnJSON.Name = "btnJSON";
+            this.btnJSON.Size = new System.Drawing.Size(285, 37);
+            this.btnJSON.TabIndex = 5;
+            this.btnJSON.Text = "Exporter données JSON";
+            this.btnJSON.UseVisualStyleBackColor = false;
+            this.btnJSON.Click += new System.EventHandler(this.btnJSON_Click);
+            // 
+            // btnXML
+            // 
+            this.btnXML.BackColor = System.Drawing.Color.MistyRose;
+            this.btnXML.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXML.Location = new System.Drawing.Point(469, 607);
+            this.btnXML.Name = "btnXML";
+            this.btnXML.Size = new System.Drawing.Size(264, 37);
+            this.btnXML.TabIndex = 6;
+            this.btnXML.Text = "Exporter données XML";
+            this.btnXML.UseVisualStyleBackColor = false;
+            this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
             // 
             // GererClientsForm
             // 
@@ -103,6 +133,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(952, 783);
+            this.Controls.Add(this.btnXML);
+            this.Controls.Add(this.btnJSON);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.dgvClients);
             this.Controls.Add(this.btnAjouter);
@@ -121,5 +153,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnAnnuler;
+        private System.Windows.Forms.Button btnJSON;
+        private System.Windows.Forms.Button btnXML;
     }
 }
