@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSI-MARESCHAL-KHOUJA-MOTTAY", "PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY.csproj", "{15A4991E-533D-468D-A46F-DFFC5E885769}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15A4991E-533D-468D-A46F-DFFC5E885769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15A4991E-533D-468D-A46F-DFFC5E885769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15A4991E-533D-468D-A46F-DFFC5E885769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15A4991E-533D-468D-A46F-DFFC5E885769}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE415ACA-8B0F-4B63-8DBE-69887200837C}
+	EndGlobalSection
+EndGlobal

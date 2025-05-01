@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{15A4991E-533D-468D-A46F-DFFC5E885769}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PSI_MARESCHAL_KHOUJA_MOTTAY</RootNamespace>
+    <AssemblyName>PSI-MARESCHAL-KHOUJA-MOTTAY</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.5.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.30.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.30.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.3.8\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data, Version=9.3.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.9.3.0\lib\net48\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZstdSharp, Version=0.8.5.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.8.5\lib\net462\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminMenuForm.Designer.cs">
+      <DependentUpon>AdminMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterClientForm.Designer.cs">
+      <DependentUpon>AjouterClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterCuisinierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterCuisinierForm.Designer.cs">
+      <DependentUpon>AjouterCuisinierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterPlatAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterPlatAdminForm.Designer.cs">
+      <DependentUpon>AjouterPlatAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterPlatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterPlatForm.Designer.cs">
+      <DependentUpon>AjouterPlatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassementForm.Designer.cs">
+      <DependentUpon>ClassementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientMenuForm.Designer.cs">
+      <DependentUpon>ClientMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommanderPlatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommanderPlatForm.Designer.cs">
+      <DependentUpon>CommanderPlatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsulterNoteMoyenneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsulterNoteMoyenneForm.Designer.cs">
+      <DependentUpon>ConsulterNoteMoyenneForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuisinierMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuisinierMenuForm.Designer.cs">
+      <DependentUpon>CuisinierMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GererClientsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GererClientsForm.Designer.cs">
+      <DependentUpon>GererClientsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GererCommandesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GererCommandesForm.Designer.cs">
+      <DependentUpon>GererCommandesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GererCuisinierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GererCuisinierForm.Designer.cs">
+      <DependentUpon>GererCuisinierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MetroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MettreAJourPlatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MettreAJourPlatForm.Designer.cs">
+      <DependentUpon>MettreAJourPlatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierClientForm.Designer.cs">
+      <DependentUpon>ModifierClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierCuisinierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierCuisinierForm.Designer.cs">
+      <DependentUpon>ModifierCuisinierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierPlatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierPlatForm.Designer.cs">
+      <DependentUpon>ModifierPlatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NoterCuisinierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoterCuisinierForm.Designer.cs">
+      <DependentUpon>NoterCuisinierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecommandationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecommandationsForm.Designer.cs">
+      <DependentUpon>RecommandationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station.cs" />
+    <Compile Include="GrapheMetro.cs" />
+    <Compile Include="AfficherGraphe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfficherGraphe.Designer.cs">
+      <DependentUpon>AfficherGraphe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SupprimerClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupprimerClientForm.Designer.cs">
+      <DependentUpon>SupprimerClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupprimerCuisinierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupprimerCuisinierForm.Designer.cs">
+      <DependentUpon>SupprimerCuisinierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupprimerPlatAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupprimerPlatAdminForm.Designer.cs">
+      <DependentUpon>SupprimerPlatAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ValiderCommandeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ValiderCommandeForm.Designer.cs">
+      <DependentUpon>ValiderCommandeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ValiderReceptionCommandeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ValiderReceptionCommandeForm.Designer.cs">
+      <DependentUpon>ValiderReceptionCommandeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VoirCommandesClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VoirCommandesClientForm.Designer.cs">
+      <DependentUpon>VoirCommandesClientForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdminMenuForm.resx">
+      <DependentUpon>AdminMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AfficherGraphe.resx">
+      <DependentUpon>AfficherGraphe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterClientForm.resx">
+      <DependentUpon>AjouterClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterCuisinierForm.resx">
+      <DependentUpon>AjouterCuisinierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterPlatAdminForm.resx">
+      <DependentUpon>AjouterPlatAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterPlatForm.resx">
+      <DependentUpon>AjouterPlatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassementForm.resx">
+      <DependentUpon>ClassementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientMenuForm.resx">
+      <DependentUpon>ClientMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommanderPlatForm.resx">
+      <DependentUpon>CommanderPlatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsulterNoteMoyenneForm.resx">
+      <DependentUpon>ConsulterNoteMoyenneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuisinierMenuForm.resx">
+      <DependentUpon>CuisinierMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GererClientsForm.resx">
+      <DependentUpon>GererClientsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GererCommandesForm.resx">
+      <DependentUpon>GererCommandesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GererCuisinierForm.resx">
+      <DependentUpon>GererCuisinierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MetroForm.resx">
+      <DependentUpon>MetroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MettreAJourPlatForm.resx">
+      <DependentUpon>MettreAJourPlatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierClientForm.resx">
+      <DependentUpon>ModifierClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierCuisinierForm.resx">
+      <DependentUpon>ModifierCuisinierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierPlatForm.resx">
+      <DependentUpon>ModifierPlatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoterCuisinierForm.resx">
+      <DependentUpon>NoterCuisinierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="RecommandationsForm.resx">
+      <DependentUpon>RecommandationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupprimerClientForm.resx">
+      <DependentUpon>SupprimerClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupprimerCuisinierForm.resx">
+      <DependentUpon>SupprimerCuisinierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupprimerPlatAdminForm.resx">
+      <DependentUpon>SupprimerPlatAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ValiderCommandeForm.resx">
+      <DependentUpon>ValiderCommandeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ValiderReceptionCommandeForm.resx">
+      <DependentUpon>ValiderReceptionCommandeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoirCommandesClientForm.resx">
+      <DependentUpon>VoirCommandesClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include=".Designer.csv" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

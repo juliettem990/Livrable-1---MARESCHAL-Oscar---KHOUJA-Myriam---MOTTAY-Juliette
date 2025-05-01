@@ -162,7 +162,27 @@ SELECT * FROM Cuisinier;
 SELECT * FROM Commande WHERE statut_commande = 'En attente';
 SELECT * FROM Commande ;
 SELECT * FROM plat ;
+SELECT * FROM notation ;
+
 -- test
 SELECT AVG(note_attribuee) AS moyenne_notes FROM Notation WHERE id_cuisinier = 1;
 
+
+-- Commande pour séparer les droits d'accès client admin cuisinier
+-- Administrateur (accès complet à la base)
+CREATE USER 'admin_lip'@'localhost' IDENTIFIED BY 'admin';
+
+-- Client (accès en lecture uniquement aux tables utiles)
+CREATE USER 'client_lip'@'localhost' IDENTIFIED BY 'client';
+
+-- Cuisinier (lecture/écriture sur ses propres données)
+CREATE USER 'cuisinier_lip'@'localhost' IDENTIFIED BY 'cuisinier';
+
+GRANT ALL PRIVILEGES ON LivInParis.* TO 'admin_lip'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON LivInParis.Plat TO 'cuisinier_lip'@'localhost';
+GRANT SELECT, UPDATE ON LivInParis.Commande TO 'cuisinier_lip'@'localhost';
+GRANT SELECT ON LivInParis.Notation TO 'cuisinier_lip'@'localhost';
+GRANT SELECT ON LivInParis.Plat TO 'client_lip'@'localhost';
+GRANT SELECT, INSERT ON LivInParis.Commande TO 'client_lip'@'localhost';
+GRANT INSERT ON LivInParis.Notation TO 'client_lip'@'localhost';
 

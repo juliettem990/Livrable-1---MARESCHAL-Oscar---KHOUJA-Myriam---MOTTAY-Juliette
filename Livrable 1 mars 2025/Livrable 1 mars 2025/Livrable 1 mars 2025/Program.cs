@@ -47,7 +47,81 @@ namespace Livrable_2_MARESCHAL_Oscar_KHOUJA_Myriam_MOTTAY_Juliette
                 string email = Console.ReadLine();
                 Console.Write("Mot de passe: ");
                 string password = Console.ReadLine();
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                // Cas spécial : Admin
+                if (email == "admin_lip" && password == "test")
+                {
+                    Console.WriteLine("\nBienvenue Administrateur !");
+                    string adminConnStr = GetConnectionString("admin_lip");
+                    using (MySqlConnection adminConn = new MySqlConnection(adminConnStr))
+                    {
+                        adminConn.Open();
+                        MenuAdmin(adminConn);
+                    }
+                    return;
+                }
+                string checkConnStr = GetConnectionString("admin");
+                using (MySqlConnection conn = new MySqlConnection(checkConnStr))
+                {
+                    conn.Open();
+
+                    // Vérifie Client
+                    string queryClient = "SELECT id_client, prenom FROM Client WHERE email = @Email AND mot_de_passe = @Password LIMIT 1";
+                    using (MySqlCommand cmd = new MySqlCommand(queryClient, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        cmd.Parameters.AddWithValue("@Password", password);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                int id_client = reader.GetInt32(0);
+                                string prenom = reader.GetString(1);
+                                Console.WriteLine("\nBonjour " + prenom + " !");
+                                reader.Close();
+
+                                string clientConnStr = GetConnectionString("client");
+                                using (MySqlConnection clientConn = new MySqlConnection(clientConnStr))
+                                {
+                                    clientConn.Open();
+                                    MenuClient(id_client, clientConn);
+                                }
+                                return;
+                            }
+                        }
+                    }
+
+                    // Vérifie Cuisinier
+                    string queryCuisinier = "SELECT id_cuisinier, prenom FROM Cuisinier WHERE email = @Email AND mot_de_passe = @Password LIMIT 1";
+                    using (MySqlCommand cmd = new MySqlCommand(queryCuisinier, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        cmd.Parameters.AddWithValue("@Password", password);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                int id_cuisinier = reader.GetInt32(0);
+                                string prenom = reader.GetString(1);
+                                Console.WriteLine("\nBonjour Cuisinier " + prenom + " !");
+                                reader.Close();
+
+                                string cuisConnStr = GetConnectionString("cuisinier");
+                                using (MySqlConnection cuisConn = new MySqlConnection(cuisConnStr))
+                                {
+                                    cuisConn.Open();
+                                    MenuCuisinier(id_cuisinier, cuisConn);
+                                }
+                                return;
+                            }
+                        }
+                    }
+
+                    Console.WriteLine("Email ou mot de passe incorrect.");
+                }
+
+                /*using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
                     string queryClient = "SELECT id_client, prenom FROM Client WHERE email = @Email AND mot_de_passe = @Password LIMIT 1";
@@ -87,9 +161,105 @@ namespace Livrable_2_MARESCHAL_Oscar_KHOUJA_Myriam_MOTTAY_Juliette
                         }
                     }
                     Console.WriteLine("Email ou mot de passe incorrect.");
+                }*/
+            }
+            static string GetConnectionString(string role)
+            {
+                string user = "", password = "";
+
+                switch (role)
+                {
+                    case "client":
+                        user = "client_lip"; password = "mdp_client"; break;
+                    case "cuisinier":
+                        user = "cuisinier_lip"; password = "mdp_cuisinier"; break;
+                    case "admin":
+                        user = "admin_lip"; password = "mdp_admin"; break;
+                    case "admin_root":
+                        user = "root"; password = "test"; break;
+                }
+
+                return $"server=localhost;user={user};password={password};database=LivInParis;";
+            }
+            static void MenuAdmin(MySqlConnection conn)
+            {
+                Console.WriteLine("\n=== Menu Admin ===");
+                Console.WriteLine("1. Voir tous les clients");
+                Console.WriteLine("2. Voir tous les cuisiniers");
+                Console.WriteLine("3. Voir toutes les commandes");
+                Console.WriteLine("4. Quitter");
+
+                string choix = Console.ReadLine();
+                switch (choix)
+                {
+                    case "1":
+                        ShowClients(conn);
+                        break;
+                    case "2":
+                        ShowCuisiniers(conn);
+                        break;
+                    case "3":
+                        ShowCommandes(conn);
+                        break;
+                    default:
+                        Console.WriteLine("Aurevoir !");
+                        break;
                 }
             }
-            static void MenuClient(int id_client)
+            static void ShowClients(MySqlConnection conn)
+            {
+                string query = "SELECT id_client, nom, prenom, email FROM Client";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    Console.WriteLine("\n--- Liste des Clients ---");
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32(0);
+                        string nom = reader.GetString(1);
+                        string prenom = reader.GetString(2);
+                        string email = reader.GetString(3);
+                        Console.WriteLine($"ID: {id} | {prenom} {nom} | Email: {email}");
+                    }
+                }
+            }
+            static void ShowCuisiniers(MySqlConnection conn)
+            {
+                string query = "SELECT id_cuisinier, nom, prenom, email FROM Cuisinier";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    Console.WriteLine("\n--- Liste des Cuisiniers ---");
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32(0);
+                        string nom = reader.GetString(1);
+                        string prenom = reader.GetString(2);
+                        string email = reader.GetString(3);
+                        Console.WriteLine($"ID: {id} | {prenom} {nom} | Email: {email}");
+                    }
+                }
+            }
+            static void ShowCommandes(MySqlConnection conn)
+            {
+                string query = "SELECT id_commande, id_client, id_cuisinier, statut FROM Commande";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    Console.WriteLine("\n--- Liste des Commandes ---");
+                    while (reader.Read())
+                    {
+                        int idCommande = reader.GetInt32(0);
+                        int idClient = reader.GetInt32(1);
+                        int idCuisinier = reader.IsDBNull(2) ? -1 : reader.GetInt32(2);
+                        string statut = reader.GetString(3);
+
+                        Console.WriteLine($"Commande ID: {idCommande} | Client ID: {idClient} | Cuisinier ID: {(idCuisinier == -1 ? "Aucun" : idCuisinier.ToString())} | Statut: {statut}");
+                    }
+                }
+            }
+
+            static void MenuClient(int id_client, MySqlConnection conn)
             {
                 while (true)
                 {
@@ -138,7 +308,7 @@ namespace Livrable_2_MARESCHAL_Oscar_KHOUJA_Myriam_MOTTAY_Juliette
                     }
                 }
             }
-            static void MenuCuisinier(int id_cuisinier)
+            static void MenuCuisinier(int id_cuisinier, MySqlConnection conn)
             {
                 
                 while (true)
