@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using DocumentFormat.OpenXml.Spreadsheet;
+
 
 using System.Drawing;
 using System.Globalization;
@@ -82,21 +82,16 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             for (int i = 1; i < lignesArcs.Length; i++)
             {
                 string[] champs = lignesArcs[i].Split(';');
-
-                // Vérifie la bonne longueur
                 if (champs.Length < 4)
                 {
                     Console.WriteLine($"[IGNORÉ] Ligne {i + 1} mal formée : {lignesArcs[i]}");
                     continue;
                 }
-
-                // Sécurise les conversions
                 if (!int.TryParse(champs[0].Trim(), out int fromId) || !int.TryParse(champs[3].Trim(), out int toId))
                 {
                     Console.WriteLine($"[ERREUR ID] Ligne {i + 1} → from: {champs[0]} | to: {champs[3]}");
                     continue;
                 }
-
                 Station from = Stations.FirstOrDefault(s => s.Id == fromId);
                 Station to = Stations.FirstOrDefault(s => s.Id == toId);
 
@@ -104,35 +99,7 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 {
                     Connexions.Add((from, to));
                 }
-            }/*
-            for (int i = 1; i < lignesArcs.Length; i++)
-            {
-                string[] champs = lignesArcs[i].Split(';');
-                if (champs.Length < 4) continue;
-
-                int fromId = int.Parse(champs[0].Trim());
-                int toId = int.Parse(champs[3].Trim());
-
-                Station from = null;
-                Station to = null;
-
-                for (int j = 0; j < Stations.Count; j++)
-                {
-                    if (Stations[j].Id == fromId)
-                    {
-                        from = Stations[j];
-                    }
-                    if (Stations[j].Id == toId)
-                    {
-                        to = Stations[j];
-                    }
-                }
-
-                if (from != null && to != null)
-                {
-                    Connexions.Add((from, to));
-                }
-            }*/
+            }
         }
         public List<Station> Dijkstra(int départId, int arrivéeId)
         {
@@ -324,8 +291,159 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             }
             return -1;
         }
+        public Dictionary<Station, int> ColorerGraphe()
+        {
+            Dictionary<Station, List<Station>> adjacence = new Dictionary<Station, List<Station>>();
+            Dictionary<Station, int> couleurs = new Dictionary<Station, int>();
+            int i = 0;
+            while (i < Stations.Count)
+            {
+                Station s = Stations[i];
+                bool trouvé = false;
+                int j = 0;
+                List<Station> cles = new List<Station>(adjacence.Keys);
+                while (j < cles.Count)
+                {
+                    if (cles[j] == s)
+                    {
+                        trouvé = true;
+                    }
+                    j = j + 1;
+                }
+                if (!trouvé)
+                {
+                    adjacence[s] = new List<Station>();
+                }
+                i = i + 1;
+            }
+            int k = 0;
+            while (k < Connexions.Count)
+            {
+                Station a = Connexions[k].From;
+                Station b = Connexions[k].To;
 
+                List<Station> listeA = adjacence[a];
+                bool existe1 = false;
+                int u = 0;
+                while (u < listeA.Count)
+                {
+                    if (listeA[u] == b)
+                    {
+                        existe1 = true;
+                    }
+                    u = u + 1;
+                }
+                if (!existe1)
+                {
+                    listeA.Add(b);
+                }
+                List<Station> listeB = adjacence[b];
+                bool existe2 = false;
+                int v = 0;
+                while (v < listeB.Count)
+                {
+                    if (listeB[v] == a)
+                    {
+                        existe2 = true;
+                    }
+                    v = v + 1;
+                }
+                if (!existe2)
+                {
+                    listeB.Add(a);
+                }
+                k = k + 1;
+            }
+            List<Station> trié = new List<Station>(adjacence.Keys);
+            int m = 0;
+            while (m < trié.Count - 1)
+            {
+                int n = m + 1;
+                while (n < trié.Count)
+                {
+                    if (adjacence[trié[n]].Count < adjacence[trié[m]].Count)
+                    {
+                        Station temp = trié[m];
+                        trié[m] = trié[n];
+                        trié[n] = temp;
+                    }
+                    n = n + 1;
+                }
+                m = m + 1;
+            }
+            int couleurActuelle = 1;
+            int p = 0;
+            while (p < trié.Count)
+            {
+                Station s = trié[p];
+                bool dejaColorie = false;
+                List<Station> clesCouleur = new List<Station>(couleurs.Keys);
+                int z = 0;
+                while (z < clesCouleur.Count)
+                {
+                    if (clesCouleur[z] == s)
+                    {
+                        dejaColorie = true;
+                    }
+                    z = z + 1;
+                }
+                if (!dejaColorie)
+                {
+                    couleurs[s] = couleurActuelle;
 
+                    int q = 0;
+                    while (q < trié.Count)
+                    {
+                        Station autre = trié[q];
+
+                        bool déjàColoré = false;
+                        List<Station> cleCouleur2 = new List<Station>(couleurs.Keys);
+                        int w = 0;
+                        while (w < cleCouleur2.Count)
+                        {
+                            if (cleCouleur2[w] == autre)
+                            {
+                                déjàColoré = true;
+                            }
+                            w = w + 1;
+                        }
+
+                        if (!déjàColoré)
+                        {
+                            bool conflit = false;
+                            List<Station> voisins = adjacence[autre];
+                            int r = 0;
+                            while (r < voisins.Count)
+                            {
+                                Station voisin = voisins[r];
+                                int index = 0;
+                                while (index < clesCouleur.Count)
+                                {
+                                    if (clesCouleur[index] == voisin && couleurs[clesCouleur[index]] == couleurActuelle)
+                                    {
+                                        conflit = true;
+                                    }
+                                    index = index + 1;
+                                }
+                                r = r + 1;
+                            }
+
+                            if (!conflit)
+                            {
+                                couleurs[autre] = couleurActuelle;
+                            }
+                        }
+
+                        q = q + 1;
+                    }
+
+                    couleurActuelle = couleurActuelle + 1;
+                }
+
+                p = p + 1;
+            }
+
+            return couleurs;
+        }
     }
-
 }

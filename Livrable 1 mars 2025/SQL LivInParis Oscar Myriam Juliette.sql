@@ -164,6 +164,8 @@ SELECT * FROM Commande ;
 SELECT * FROM plat ;
 SELECT * FROM notation ;
 
+UPDATE Cuisinier SET note_moyenne = 4.2 WHERE id_cuisinier =2 ;
+
 -- test
 SELECT AVG(note_attribuee) AS moyenne_notes FROM Notation WHERE id_cuisinier = 1;
 

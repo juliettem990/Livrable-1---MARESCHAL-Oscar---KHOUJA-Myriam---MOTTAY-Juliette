@@ -41,6 +41,7 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             this.btnGererCommandes = new System.Windows.Forms.Button();
             this.btnQuitter = new System.Windows.Forms.Button();
             this.lblMessageAdmin = new System.Windows.Forms.Label();
+            this.btnColoration = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGererClients
@@ -89,12 +90,24 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             this.lblMessageAdmin.TabIndex = 4;
             this.lblMessageAdmin.Text = "Bonjour Admin !";
             // 
+            // btnColoration
+            // 
+            this.btnColoration.BackColor = System.Drawing.Color.MistyRose;
+            this.btnColoration.Location = new System.Drawing.Point(396, 563);
+            this.btnColoration.Name = "btnColoration";
+            this.btnColoration.Size = new System.Drawing.Size(153, 34);
+            this.btnColoration.TabIndex = 5;
+            this.btnColoration.Text = "Coloration graphe";
+            this.btnColoration.UseVisualStyleBackColor = false;
+            this.btnColoration.Click += new System.EventHandler(this.btnColoration_Click);
+            // 
             // AdminMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(952, 783);
+            this.Controls.Add(this.btnColoration);
             this.Controls.Add(this.lblMessageAdmin);
             this.Controls.Add(this.btnGererClients);
             this.Controls.Add(this.btnGererCuisiniers);
@@ -112,5 +125,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
         #endregion
 
         private Label lblMessageAdmin;
+        private Button btnColoration;
     }
 }

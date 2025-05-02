@@ -42,5 +42,17 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             mainForm.Show();
             this.Close();
         }
+        private void btnColoration_Click(object sender, EventArgs e)
+        {
+            GrapheMetro monGraphe = new GrapheMetro(); 
+            Dictionary<Station, int> resultats = monGraphe.ColorerGraphe();
+
+            string message = "Résultat de la coloration :\n\n";
+            foreach (var pair in resultats)
+            {
+                message += $"{pair.Key.Nom} : Couleur {pair.Value}\n"; 
+            }
+            MessageBox.Show(message, "Coloration du graphe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
