@@ -51,9 +51,9 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             // lblInfos
             // 
             this.lblInfos.BackColor = System.Drawing.Color.Transparent;
-            this.lblInfos.Location = new System.Drawing.Point(20, 20);
+            this.lblInfos.Location = new System.Drawing.Point(12, 9);
             this.lblInfos.Name = "lblInfos";
-            this.lblInfos.Size = new System.Drawing.Size(300, 20);
+            this.lblInfos.Size = new System.Drawing.Size(300, 59);
             this.lblInfos.TabIndex = 0;
             this.lblInfos.Text = "Chargement...";
             this.lblInfos.Click += new System.EventHandler(this.lblInfos_Click);
@@ -61,7 +61,7 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             // btnCarte
             // 
             this.btnCarte.BackColor = System.Drawing.Color.MistyRose;
-            this.btnCarte.Location = new System.Drawing.Point(23, 100);
+            this.btnCarte.Location = new System.Drawing.Point(82, 123);
             this.btnCarte.Name = "btnCarte";
             this.btnCarte.Size = new System.Drawing.Size(75, 23);
             this.btnCarte.TabIndex = 3;
@@ -72,7 +72,7 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             // btnItineraire
             // 
             this.btnItineraire.BackColor = System.Drawing.Color.MistyRose;
-            this.btnItineraire.Location = new System.Drawing.Point(130, 100);
+            this.btnItineraire.Location = new System.Drawing.Point(167, 123);
             this.btnItineraire.Name = "btnItineraire";
             this.btnItineraire.Size = new System.Drawing.Size(75, 23);
             this.btnItineraire.TabIndex = 4;
@@ -82,14 +82,14 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             // 
             // txtDepart
             // 
-            this.txtDepart.Location = new System.Drawing.Point(20, 60);
+            this.txtDepart.Location = new System.Drawing.Point(57, 83);
             this.txtDepart.Name = "txtDepart";
             this.txtDepart.Size = new System.Drawing.Size(100, 22);
             this.txtDepart.TabIndex = 1;
             // 
             // txtArrivee
             // 
-            this.txtArrivee.Location = new System.Drawing.Point(130, 60);
+            this.txtArrivee.Location = new System.Drawing.Point(167, 83);
             this.txtArrivee.Name = "txtArrivee";
             this.txtArrivee.Size = new System.Drawing.Size(100, 22);
             this.txtArrivee.TabIndex = 2;
@@ -99,7 +99,7 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(262, 153);
+            this.ClientSize = new System.Drawing.Size(344, 177);
             this.Controls.Add(this.lblInfos);
             this.Controls.Add(this.txtDepart);
             this.Controls.Add(this.txtArrivee);

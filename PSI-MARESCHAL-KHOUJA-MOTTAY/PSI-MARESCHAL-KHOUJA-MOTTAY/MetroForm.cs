@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -23,11 +22,13 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
         private float offsetY = 0;
         private bool isDragging = false;
         private Point lastMousePosition;
+        private List<Station> arborescence;
 
-        public MetroForm(GrapheMetro graphe, List<Station> chemin = null)
+        public MetroForm(GrapheMetro graphe, List<Station> chemin = null, Dictionary<Station, int> coloration = null)
         {
             _graphe = graphe;
             _chemin = chemin;
+            _coloration = coloration;
 
             Text = "Réseau du Métro Parisien";
             Size = new Size(1600, 1400);
@@ -40,6 +41,28 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             MouseMove += MetroForm_MouseMove;
         }
 
+
+
+        private Dictionary<Station, int> _coloration;
+
+        
+        public MetroForm(GrapheMetro graphe, Dictionary<Station, int> coloration)
+        {
+            _graphe = graphe;
+            _coloration = coloration;
+
+            Text = "Réseau du Métro Parisien - Coloration";
+            Size = new Size(1600, 1400);
+            DoubleBuffered = true;
+            BackColor = Color.White;
+
+            MouseWheel += MetroForm_MouseWheel;
+            MouseDown += MetroForm_MouseDown;
+            MouseUp += MetroForm_MouseUp;
+            MouseMove += MetroForm_MouseMove;
+        }
+
+
         private void MetroForm_MouseWheel(object sender, MouseEventArgs e)
         {
             float oldZoom = zoom;
@@ -48,7 +71,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             offsetY = e.Y - (e.Y - offsetY) * (zoom / oldZoom);
             Invalidate();
         }
-
         private void MetroForm_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -57,12 +79,10 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 lastMousePosition = e.Location;
             }
         }
-
         private void MetroForm_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;
         }
-
         private void MetroForm_MouseMove(object sender, MouseEventArgs e)
         {
             if (isDragging)
@@ -73,7 +93,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 Invalidate();
             }
         }
-
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -136,13 +155,42 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 float x = (float)(station.Longitude * scale) + finalOffsetX;
                 float y = ClientSize.Height - ((float)(station.Latitude * scale) + finalOffsetY);
 
-                var brush = _chemin != null && _chemin.Contains(station)
-                    ? Brushes.Red
-                    : Brushes.LightBlue;
+                
+                Brush brush;
+                if (_coloration != null && _coloration.TryGetValue(station, out int couleurId))
+                {
+                    brush = new SolidBrush(CouleurDepuisIndice(couleurId));
+                }
+                else if (_chemin != null && _chemin.Contains(station))
+                {
+                    brush = Brushes.Red;
+                }
+                else
+                {
+                    brush = Brushes.LightBlue;
+                }
+
 
                 e.Graphics.FillEllipse(brush, x - 5, y - 5, 8, 8);
                 e.Graphics.DrawString(station.Nom, new Font("Arial", 6), Brushes.Black, x + 6, y - 5);
             }
+        }
+        private Color CouleurDepuisIndice(int id)
+        {
+            Color[] palette = new Color[]
+            {
+        Color.LightBlue,
+        Color.LightGreen,
+        Color.LightPink,
+        Color.LightYellow,
+        Color.Orange,
+        Color.Violet,
+        Color.Cyan,
+        Color.Brown,
+        Color.LightGray,
+        Color.Salmon
+            };
+            return palette[id % palette.Length]; 
         }
 
         private void InitializeComponent()

@@ -119,9 +119,9 @@
             // 
             this.btnXML.BackColor = System.Drawing.Color.MistyRose;
             this.btnXML.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXML.Location = new System.Drawing.Point(469, 607);
+            this.btnXML.Location = new System.Drawing.Point(443, 607);
             this.btnXML.Name = "btnXML";
-            this.btnXML.Size = new System.Drawing.Size(264, 37);
+            this.btnXML.Size = new System.Drawing.Size(290, 37);
             this.btnXML.TabIndex = 6;
             this.btnXML.Text = "Exporter données XML";
             this.btnXML.UseVisualStyleBackColor = false;

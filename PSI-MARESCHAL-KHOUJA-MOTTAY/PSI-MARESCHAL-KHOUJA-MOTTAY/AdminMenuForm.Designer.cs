@@ -42,6 +42,8 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             this.btnQuitter = new System.Windows.Forms.Button();
             this.lblMessageAdmin = new System.Windows.Forms.Label();
             this.btnColoration = new System.Windows.Forms.Button();
+            this.btnGraphe = new System.Windows.Forms.Button();
+            this.btnACPM = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGererClients
@@ -93,13 +95,35 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             // btnColoration
             // 
             this.btnColoration.BackColor = System.Drawing.Color.MistyRose;
-            this.btnColoration.Location = new System.Drawing.Point(396, 563);
+            this.btnColoration.Location = new System.Drawing.Point(371, 565);
             this.btnColoration.Name = "btnColoration";
-            this.btnColoration.Size = new System.Drawing.Size(153, 34);
+            this.btnColoration.Size = new System.Drawing.Size(193, 34);
             this.btnColoration.TabIndex = 5;
             this.btnColoration.Text = "Coloration graphe";
             this.btnColoration.UseVisualStyleBackColor = false;
             this.btnColoration.Click += new System.EventHandler(this.btnColoration_Click);
+            // 
+            // btnGraphe
+            // 
+            this.btnGraphe.BackColor = System.Drawing.Color.MistyRose;
+            this.btnGraphe.Location = new System.Drawing.Point(371, 526);
+            this.btnGraphe.Name = "btnGraphe";
+            this.btnGraphe.Size = new System.Drawing.Size(193, 33);
+            this.btnGraphe.TabIndex = 6;
+            this.btnGraphe.Text = "Afficher Graphe";
+            this.btnGraphe.UseVisualStyleBackColor = false;
+            this.btnGraphe.Click += new System.EventHandler(this.btnGraphe_Click);
+            // 
+            // btnACPM
+            // 
+            this.btnACPM.BackColor = System.Drawing.Color.MistyRose;
+            this.btnACPM.Location = new System.Drawing.Point(371, 605);
+            this.btnACPM.Name = "btnACPM";
+            this.btnACPM.Size = new System.Drawing.Size(193, 29);
+            this.btnACPM.TabIndex = 7;
+            this.btnACPM.Text = "Afficher Graphe ACPM ";
+            this.btnACPM.UseVisualStyleBackColor = false;
+            this.btnACPM.Click += new System.EventHandler(this.btnACPM_Click);
             // 
             // AdminMenuForm
             // 
@@ -107,6 +131,8 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(952, 783);
+            this.Controls.Add(this.btnACPM);
+            this.Controls.Add(this.btnGraphe);
             this.Controls.Add(this.btnColoration);
             this.Controls.Add(this.lblMessageAdmin);
             this.Controls.Add(this.btnGererClients);
@@ -126,5 +152,7 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
 
         private Label lblMessageAdmin;
         private Button btnColoration;
+        private Button btnGraphe;
+        private Button btnACPM;
     }
 }

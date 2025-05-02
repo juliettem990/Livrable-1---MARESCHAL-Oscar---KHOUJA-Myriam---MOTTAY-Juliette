@@ -108,6 +108,12 @@
     <Compile Include="AdminMenuForm.Designer.cs">
       <DependentUpon>AdminMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AfficherColoration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfficherColoration.Designer.cs">
+      <DependentUpon>AfficherColoration.cs</DependentUpon>
+    </Compile>
     <Compile Include="AjouterClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,12 +144,14 @@
     <Compile Include="ClassementForm.Designer.cs">
       <DependentUpon>ClassementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client.cs" />
     <Compile Include="ClientMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ClientMenuForm.Designer.cs">
       <DependentUpon>ClientMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Commande.cs" />
     <Compile Include="CommanderPlatForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +164,7 @@
     <Compile Include="ConsulterNoteMoyenneForm.Designer.cs">
       <DependentUpon>ConsulterNoteMoyenneForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cuisinier.cs" />
     <Compile Include="CuisinierMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +288,9 @@
     </Compile>
     <EmbeddedResource Include="AdminMenuForm.resx">
       <DependentUpon>AdminMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AfficherColoration.resx">
+      <DependentUpon>AfficherColoration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AfficherGraphe.resx">
       <DependentUpon>AfficherGraphe.cs</DependentUpon>

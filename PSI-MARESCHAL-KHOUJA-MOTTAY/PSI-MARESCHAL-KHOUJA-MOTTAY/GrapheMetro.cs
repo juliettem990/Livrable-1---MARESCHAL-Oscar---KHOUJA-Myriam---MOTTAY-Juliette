@@ -1,19 +1,16 @@
-<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-
-=======
-using System;
->>>>>>> 3826f2e4a00b8d7d9fd0a28ce611e6ff1a7109e9
 using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 using static System.Collections.Specialized.BitVector32;
+using PSI_MARESCHAL_KHOUJA_MOTTAY;
+
+
 namespace PSI_MARESCHAL_KHOUJA_MOTTAY
 {
     public class GrapheMetro
@@ -292,233 +289,132 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             }
             return -1;
         }
-<<<<<<< HEAD
         public Dictionary<Station, int> ColorerGraphe()
-=======
-        private Dictionary<Station,int> ColorerGraphe()
->>>>>>> 3826f2e4a00b8d7d9fd0a28ce611e6ff1a7109e9
         {
+            // Construire la liste d'adjacence
             Dictionary<Station, List<Station>> adjacence = new Dictionary<Station, List<Station>>();
+
+            foreach (var station in Stations)
+                adjacence[station] = new List<Station>();
+
+            foreach (var connexion in Connexions)
+            {
+                adjacence[connexion.From].Add(connexion.To);
+                adjacence[connexion.To].Add(connexion.From); // Graphe non orienté
+            }
+
+            // Trier les sommets par degré décroissant
+            List<Station> stationsTriees = adjacence.Keys
+                .OrderByDescending(s => adjacence[s].Count)
+                .ToList();
+
             Dictionary<Station, int> couleurs = new Dictionary<Station, int>();
-            int i = 0;
-<<<<<<< HEAD
-            while (i < Stations.Count)
-            {
-=======
-            while(i < Stations.Count) {
->>>>>>> 3826f2e4a00b8d7d9fd0a28ce611e6ff1a7109e9
-                Station s = Stations[i];
-                bool trouvé = false;
-                int j = 0;
-                List<Station> cles = new List<Station>(adjacence.Keys);
-                while (j < cles.Count)
-                {
-<<<<<<< HEAD
-                    if (cles[j] == s)
-                    {
-=======
-                    if (cles[j] == s) {
->>>>>>> 3826f2e4a00b8d7d9fd0a28ce611e6ff1a7109e9
-                        trouvé = true;
-                    }
-                    j = j + 1;
-                }
-                if (!trouvé)
-                {
-                    adjacence[s] = new List<Station>();
-                }
-                i = i + 1;
-            }
-            int k = 0;
-            while (k < Connexions.Count)
-            {
-                Station a = Connexions[k].From;
-                Station b = Connexions[k].To;
 
-                List<Station> listeA = adjacence[a];
-                bool existe1 = false;
-                int u = 0;
-<<<<<<< HEAD
-                while (u < listeA.Count)
-=======
-                while (u < listeA.Count )
->>>>>>> 3826f2e4a00b8d7d9fd0a28ce611e6ff1a7109e9
-                {
-                    if (listeA[u] == b)
-                    {
-                        existe1 = true;
-                    }
-                    u = u + 1;
-                }
-                if (!existe1)
-                {
-                    listeA.Add(b);
-                }
-                List<Station> listeB = adjacence[b];
-                bool existe2 = false;
-                int v = 0;
-                while (v < listeB.Count)
-                {
-                    if (listeB[v] == a)
-                    {
-                        existe2 = true;
-                    }
-                    v = v + 1;
-                }
-                if (!existe2)
-                {
-                    listeB.Add(a);
-                }
-                k = k + 1;
-            }
-            List<Station> trié = new List<Station>(adjacence.Keys);
-            int m = 0;
-            while (m < trié.Count - 1)
-            {
-                int n = m + 1;
-                while (n < trié.Count)
-                {
-                    if (adjacence[trié[n]].Count < adjacence[trié[m]].Count)
-                    {
-                        Station temp = trié[m];
-                        trié[m] = trié[n];
-                        trié[n] = temp;
-                    }
-                    n = n + 1;
-                }
-                m = m + 1;
-            }
             int couleurActuelle = 1;
-            int p = 0;
-            while (p < trié.Count)
+            foreach (var station in stationsTriees)
             {
-                Station s = trié[p];
-                bool dejaColorie = false;
-                List<Station> clesCouleur = new List<Station>(couleurs.Keys);
-                int z = 0;
-                while (z < clesCouleur.Count)
+                if (couleurs.ContainsKey(station))
+                    continue;
+
+                // Appliquer la couleur à la station
+                couleurs[station] = couleurActuelle;
+
+                // Appliquer la même couleur aux stations non adjacentes à celles déjà colorées avec cette couleur
+                foreach (var autre in stationsTriees)
                 {
-                    if (clesCouleur[z] == s)
+                    if (!couleurs.ContainsKey(autre) &&
+                        !adjacence[station].Contains(autre) &&  // Pas voisin de la station courante
+                        !adjacence[autre].Any(voisin => couleurs.ContainsKey(voisin) && couleurs[voisin] == couleurActuelle)) // Aucun voisin coloré avec couleurActuelle
                     {
-                        dejaColorie = true;
+                        couleurs[autre] = couleurActuelle;
                     }
-                    z = z + 1;
-                }
-                if (!dejaColorie)
-                {
-                    couleurs[s] = couleurActuelle;
-<<<<<<< HEAD
-=======
-
-                    int q = 0;
-                    while (q < trié.Count)
-                    {
-                        Station autre = trié[q];
-
-                        bool déjàColoré = false;
-                        List<Station> cleCouleur2 = new List<Station>(couleurs.Keys);
-                        int w = 0;
-                        while (w < cleCouleur2.Count)
-                        {
-                            if (cleCouleur2[w] == autre)
-                            {
-                                déjàColoré = true;
-                            }
-                            w = w + 1;
-                        }
-
-                        if (!déjàColoré)
-                        {
-                            bool conflit = false;
-                            List<Station> voisins = adjacence[autre];
-                            int r = 0;
-                            while (r < voisins.Count)
-                            {
-                                Station voisin = voisins[r];
-                                int index = 0;
-                                while (index < clesCouleur.Count)
-                                {
-                                    if (clesCouleur[index] == voisin && couleurs[clesCouleur[index]] == couleurActuelle)
-                                    {
-                                        conflit = true;
-                                    }
-                                    index = index + 1;
-                                }
-                                r = r + 1;
-                            }
-
-                            if (!conflit)
-                            {
-                                couleurs[autre] = couleurActuelle;
-                            }
-                        }
-
-                        q = q + 1;
-                    }
-
-                    couleurActuelle = couleurActuelle + 1;
                 }
 
-                p = p + 1;
+                couleurActuelle++;
             }
 
             return couleurs;
         }
->>>>>>> 3826f2e4a00b8d7d9fd0a28ce611e6ff1a7109e9
+        public List<Station> ChuLiuEdmonds(int rootId)
+        {
+            Dictionary<int, (Station from, double poids)> minArcs = new Dictionary<int, (Station, double)>();
 
-                    int q = 0;
-                    while (q < trié.Count)
+            foreach (var station in Stations)
+            {
+                if (station.Id == rootId) continue;
+
+                double minPoids = double.MaxValue;
+                Station parent = null;
+
+                foreach (var (from, to) in Connexions)
+                {
+                    if (to.Id == station.Id)
                     {
-                        Station autre = trié[q];
+                        double poids = 1;
 
-                        bool déjàColoré = false;
-                        List<Station> cleCouleur2 = new List<Station>(couleurs.Keys);
-                        int w = 0;
-                        while (w < cleCouleur2.Count)
+                        bool changementDeLigne = true;
+                        foreach (string ligne in from.Lignes)
                         {
-                            if (cleCouleur2[w] == autre)
+                            if (station.Lignes.Contains(ligne))
                             {
-                                déjàColoré = true;
-                            }
-                            w = w + 1;
-                        }
-
-                        if (!déjàColoré)
-                        {
-                            bool conflit = false;
-                            List<Station> voisins = adjacence[autre];
-                            int r = 0;
-                            while (r < voisins.Count)
-                            {
-                                Station voisin = voisins[r];
-                                int index = 0;
-                                while (index < clesCouleur.Count)
-                                {
-                                    if (clesCouleur[index] == voisin && couleurs[clesCouleur[index]] == couleurActuelle)
-                                    {
-                                        conflit = true;
-                                    }
-                                    index = index + 1;
-                                }
-                                r = r + 1;
-                            }
-
-                            if (!conflit)
-                            {
-                                couleurs[autre] = couleurActuelle;
+                                changementDeLigne = false;
+                                break;
                             }
                         }
+                        if (changementDeLigne) poids += 1;
 
-                        q = q + 1;
+                        if (poids < minPoids)
+                        {
+                            minPoids = poids;
+                            parent = from;
+                        }
                     }
-
-                    couleurActuelle = couleurActuelle + 1;
                 }
 
-                p = p + 1;
+                if (parent != null)
+                {
+                    minArcs[station.Id] = (parent, minPoids);
+                }
             }
 
-            return couleurs;
+            List<Station> arborescence = new List<Station>();
+            HashSet<int> visités = new HashSet<int>();
+
+            void AjouterVersRacine(int id)
+            {
+                if (visités.Contains(id)) return;
+                visités.Add(id);
+                if (minArcs.ContainsKey(id))
+                {
+                    AjouterVersRacine(minArcs[id].from.Id);
+                }
+                foreach (var s in Stations)
+                {
+                    if (s.Id == id)
+                    {
+                        arborescence.Insert(0, s);
+                        break;
+                    }
+                }
+            }
+
+            foreach (var id in minArcs.Keys)
+            {
+                AjouterVersRacine(id);
+            }
+
+            foreach (var s in Stations)
+            {
+                if (s.Id == rootId)
+                {
+                    arborescence.Insert(0, s);
+                    break;
+                }
+            }
+
+            return arborescence;
         }
+
+        
     }
 }

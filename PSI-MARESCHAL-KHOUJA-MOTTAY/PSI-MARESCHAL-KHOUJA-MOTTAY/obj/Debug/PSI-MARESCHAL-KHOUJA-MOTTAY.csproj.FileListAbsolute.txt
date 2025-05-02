@@ -71,3 +71,4 @@ C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHO
 C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\bin\Debug\Newtonsoft.Json.dll
 C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\bin\Debug\Newtonsoft.Json.xml
 C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\obj\Debug\PSI_MARESCHAL_KHOUJA_MOTTAY.RegisterForm.resources
+C:\Users\julie\Documents\ESILV\S4\PB scientifique informatique\PSI-MARESCHAL-KHOUJA-MOTTAY\PSI-MARESCHAL-KHOUJA-MOTTAY\obj\Debug\PSI_MARESCHAL_KHOUJA_MOTTAY.AfficherColoration.resources

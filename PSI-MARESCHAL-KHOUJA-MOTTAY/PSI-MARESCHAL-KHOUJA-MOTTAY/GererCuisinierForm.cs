@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using System.IO;
+using System.Xml.Serialization;
 
 namespace PSI_MARESCHAL_KHOUJA_MOTTAY
 {
@@ -114,58 +115,92 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
         {
             this.Close();
         }
-        private void btnJSON_Click(object sender, EventArgs e)
+        private List<Cuisinier> GetAllCuisiniers()
         {
+            List<Cuisinier> cuisiniers = new List<Cuisinier>();
+
             using (MySqlConnection conn = new MySqlConnection(Program.connectionString))
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Cuisinier", conn);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                string json = JsonConvert.SerializeObject(dt, Formatting.Indented);
-                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                string query = "SELECT * FROM Cuisinier";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
-                    saveFileDialog.Filter = "Fichiers JSON (*.json)|*.json";
-                    saveFileDialog.Title = "Enregistrer les cuisiniers au format JSON";
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    while (reader.Read())
                     {
-                        File.WriteAllText(saveFileDialog.FileName, json);
-                        MessageBox.Show("Export JSON réussi !");
+                        cuisiniers.Add(new Cuisinier
+                        {
+                            id_cuisinier = reader.GetInt32("id_cuisinier"),
+                            nom = reader.GetString("nom"),
+                            prenom = reader.GetString("prenom"),
+                            email = reader.GetString("email"),
+                            telephone = reader.GetString("telephone"),
+                            rue = reader.IsDBNull(reader.GetOrdinal("rue")) ? "" : reader.GetString("rue"),
+                            numeroRue = reader.IsDBNull(reader.GetOrdinal("numeroRue")) ? "" : reader.GetString("numeroRue"),
+                            codePostal = reader.IsDBNull(reader.GetOrdinal("codePostal")) ? 0 : reader.GetInt32("codePostal"),
+                            ville = reader.IsDBNull(reader.GetOrdinal("ville")) ? "" : reader.GetString("ville"),
+                            metroLePlusProche = reader.GetString("metroLePlusProche"),
+                            specialite_culinaire = reader.IsDBNull(reader.GetOrdinal("specialite_culinaire")) ? "" : reader.GetString("specialite_culinaire"),
+                            mot_de_passe = reader.GetString("mot_de_passe"),
+                            note_moyenne = reader.IsDBNull(reader.GetOrdinal("note_moyenne")) ? 0 : reader.GetDecimal("note_moyenne")
+                        });
                     }
-                    else
-                    {
-                        MessageBox.Show("L'exportation a été annulée.");
-                    }
+                }
+            }
+            return cuisiniers;
+        }
+        private void btnJSON_Click(object sender, EventArgs e)
+        {
+            List<Cuisinier> cuisiniers = GetAllCuisiniers();
+            if (cuisiniers.Count == 0)
+            {
+                MessageBox.Show("Aucun cuisinier trouvé.");
+                return;
+            }
+            string json = JsonConvert.SerializeObject(cuisiniers, Formatting.Indented);
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Fichiers JSON (*.json)|*.json";
+                saveFileDialog.Title = "Enregistrer les cuisiniers au format JSON";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    File.WriteAllText(saveFileDialog.FileName, json);
+                    MessageBox.Show("Export JSON des cuisiniers réussi !");
+                }
+                else
+                {
+                    MessageBox.Show("L'exportation a été annulée.");
                 }
             }
         }
         private void btnXML_Click(object sender, EventArgs e)
         {
-            using (MySqlConnection conn = new MySqlConnection(Program.connectionString))
+            List<Cuisinier> cuisiniers = GetAllCuisiniers();
+            if (cuisiniers.Count == 0)
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Cuisinier", conn);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable dt = new DataTable("Cuisinier");
-                adapter.Fill(dt);
-                DataSet ds = new DataSet("Cuisiniers");
-                ds.Tables.Add(dt);
-                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                MessageBox.Show("Aucun cuisinier trouvé.");
+                return;
+            }
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Cuisinier>));
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Fichiers XML (*.xml)|*.xml";
+                saveFileDialog.Title = "Enregistrer les cuisiniers au format XML";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    saveFileDialog.Filter = "Fichiers XML (*.xml)|*.xml";
-                    saveFileDialog.Title = "Enregistrer les cuisiniers au format XML";
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    using (FileStream fs = new FileStream(saveFileDialog.FileName, FileMode.Create))
                     {
-                        ds.WriteXml(saveFileDialog.FileName, XmlWriteMode.WriteSchema);
-                        MessageBox.Show("Export XML réussi !");
+                        serializer.Serialize(fs, cuisiniers);
                     }
-                    else
-                    {
-                        MessageBox.Show("L'exportation a été annulée.");
-                    }
+                    MessageBox.Show("Export XML des cuisiniers réussi !");
+                }
+                else
+                {
+                    MessageBox.Show("L'exportation a été annulée.");
                 }
             }
         }
+
     }
 }

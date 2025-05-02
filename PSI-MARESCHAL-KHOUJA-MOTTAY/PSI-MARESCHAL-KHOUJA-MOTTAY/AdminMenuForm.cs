@@ -12,14 +12,22 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
 {
     public partial class AdminMenuForm : Form
     {
-        private MainForm mainForm; 
+        private MainForm mainForm;
+        private GrapheMetro graphe;
+
         public AdminMenuForm(MainForm mainForm)
         {
-            this.mainForm = mainForm;  
+            this.mainForm = mainForm;
+            graphe = new GrapheMetro();
+            graphe.ChargerDonnees();
             InitializeComponent();
+            
         }
         public AdminMenuForm()
         {
+            
+            graphe = new GrapheMetro();
+            graphe.ChargerDonnees();
             InitializeComponent();
         }
         private void btnGererClients_Click(object sender, EventArgs e)
@@ -43,16 +51,24 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             this.Close();
         }
         private void btnColoration_Click(object sender, EventArgs e)
+        {       
+            var couleurs = graphe.ColorerGraphe();
+            var formCarte = new MetroForm(graphe, couleurs);
+            formCarte.Show();
+        }
+        private void btnGraphe_Click(object sender, EventArgs e)
         {
-            GrapheMetro monGraphe = new GrapheMetro(); 
-            Dictionary<Station, int> resultats = monGraphe.ColorerGraphe();
+            AfficherGraphe form = new AfficherGraphe();
+            form.ShowDialog();
+        }
 
-            string message = "Résultat de la coloration :\n\n";
-            foreach (var pair in resultats)
-            {
-                message += $"{pair.Key.Nom} : Couleur {pair.Value}\n"; 
-            }
-            MessageBox.Show(message, "Coloration du graphe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        private void btnACPM_Click(object sender, EventArgs e)
+        {
+            int rootId = 1; 
+            var newarc = graphe.ChuLiuEdmonds(rootId);
+            
+            var formCarte = new MetroForm(graphe, newarc);
+            formCarte.Show();
         }
     }
 }

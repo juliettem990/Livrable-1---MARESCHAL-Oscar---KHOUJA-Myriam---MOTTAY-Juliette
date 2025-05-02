@@ -89,5 +89,18 @@
     "metroLePlusProche": "Pont Cardinet",
     "telephone": "0789498267",
     "mot_de_passe": "test"
+  },
+  {
+    "id_client": 10,
+    "nom": "mar",
+    "prenom": "oscar",
+    "email": "oscar@e.com",
+    "rue": "concorde",
+    "numeroRue": "24",
+    "codePostal": 75000,
+    "ville": "paris",
+    "metroLePlusProche": "Liège",
+    "telephone": "0678980937",
+    "mot_de_passe": "test"
   }
 ]

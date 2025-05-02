@@ -18,8 +18,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
         private string adresseClient;
         private string adresseCuisinier;
         private bool autoGenerer;
-
-        // Constructeur automatique avec adresses prêtes
         public AfficherGraphe(string adresseClient, string adresseCuisinier)
         {
             InitializeComponent();
@@ -33,19 +31,15 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             lblInfos.Text = $"Stations: {graphe.Stations.Count}, Connexions: {graphe.Connexions.Count}";
             GenererItineraireDepuisAdresses();
         }
-
-        // Constructeur classique (manuel)
         public AfficherGraphe()
         {
             InitializeComponent();
             graphe = new GrapheMetro();
             graphe.ChargerDonnees();
-
             this.autoGenerer = false;
-            lblInfos.Text = $"Stations: {graphe.Stations.Count}, Connexions: {graphe.Connexions.Count}";
+            lblInfos.Text = $"Il y a : {graphe.Stations.Count} stations, et : {graphe.Connexions.Count} connexions \n Selectionnez en 2 puis recherchez ou affichez seulement le graphe";
+            
         }
-
-        // Bouton manuel
         private void btnItineraire_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtDepart.Text, out int startId) || !int.TryParse(txtArrivee.Text, out int endId))
@@ -57,7 +51,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             AfficherItineraire(startId, endId);
         }
 
-        // Méthode générique d'affichage de l'itinéraire
         private void AfficherItineraire(int departId, int arriveeId)
         {
             var chemin = graphe.Dijkstra(departId, arriveeId);
@@ -71,8 +64,7 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 formResult.Show();
             }
         }
-
-        // Génère automatiquement l'itinéraire à partir des noms de stations
+        
         private void GenererItineraireDepuisAdresses()
         {
             try
@@ -93,13 +85,11 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 MessageBox.Show("Erreur lors de la génération automatique : " + ex.Message);
             }
         }
-
         private void btnCarte_Click(object sender, EventArgs e)
         {
             var formCarte = new MetroForm(graphe);
             formCarte.Show();
         }
-
         private void lblInfos_Click(object sender, EventArgs e)
         {
 
