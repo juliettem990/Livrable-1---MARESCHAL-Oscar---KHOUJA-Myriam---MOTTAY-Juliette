@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,14 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+=======
+using System;
+>>>>>>> 3826f2e4a00b8d7d9fd0a28ce611e6ff1a7109e9
 using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 using static System.Collections.Specialized.BitVector32;
-using PSI_MARESCHAL_KHOUJA_MOTTAY;
-
-
 namespace PSI_MARESCHAL_KHOUJA_MOTTAY
 {
     public class GrapheMetro
@@ -291,21 +292,33 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             }
             return -1;
         }
+<<<<<<< HEAD
         public Dictionary<Station, int> ColorerGraphe()
+=======
+        private Dictionary<Station,int> ColorerGraphe()
+>>>>>>> 3826f2e4a00b8d7d9fd0a28ce611e6ff1a7109e9
         {
             Dictionary<Station, List<Station>> adjacence = new Dictionary<Station, List<Station>>();
             Dictionary<Station, int> couleurs = new Dictionary<Station, int>();
             int i = 0;
+<<<<<<< HEAD
             while (i < Stations.Count)
             {
+=======
+            while(i < Stations.Count) {
+>>>>>>> 3826f2e4a00b8d7d9fd0a28ce611e6ff1a7109e9
                 Station s = Stations[i];
                 bool trouvé = false;
                 int j = 0;
                 List<Station> cles = new List<Station>(adjacence.Keys);
                 while (j < cles.Count)
                 {
+<<<<<<< HEAD
                     if (cles[j] == s)
                     {
+=======
+                    if (cles[j] == s) {
+>>>>>>> 3826f2e4a00b8d7d9fd0a28ce611e6ff1a7109e9
                         trouvé = true;
                     }
                     j = j + 1;
@@ -325,7 +338,11 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 List<Station> listeA = adjacence[a];
                 bool existe1 = false;
                 int u = 0;
+<<<<<<< HEAD
                 while (u < listeA.Count)
+=======
+                while (u < listeA.Count )
+>>>>>>> 3826f2e4a00b8d7d9fd0a28ce611e6ff1a7109e9
                 {
                     if (listeA[u] == b)
                     {
@@ -390,6 +407,64 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 if (!dejaColorie)
                 {
                     couleurs[s] = couleurActuelle;
+<<<<<<< HEAD
+=======
+
+                    int q = 0;
+                    while (q < trié.Count)
+                    {
+                        Station autre = trié[q];
+
+                        bool déjàColoré = false;
+                        List<Station> cleCouleur2 = new List<Station>(couleurs.Keys);
+                        int w = 0;
+                        while (w < cleCouleur2.Count)
+                        {
+                            if (cleCouleur2[w] == autre)
+                            {
+                                déjàColoré = true;
+                            }
+                            w = w + 1;
+                        }
+
+                        if (!déjàColoré)
+                        {
+                            bool conflit = false;
+                            List<Station> voisins = adjacence[autre];
+                            int r = 0;
+                            while (r < voisins.Count)
+                            {
+                                Station voisin = voisins[r];
+                                int index = 0;
+                                while (index < clesCouleur.Count)
+                                {
+                                    if (clesCouleur[index] == voisin && couleurs[clesCouleur[index]] == couleurActuelle)
+                                    {
+                                        conflit = true;
+                                    }
+                                    index = index + 1;
+                                }
+                                r = r + 1;
+                            }
+
+                            if (!conflit)
+                            {
+                                couleurs[autre] = couleurActuelle;
+                            }
+                        }
+
+                        q = q + 1;
+                    }
+
+                    couleurActuelle = couleurActuelle + 1;
+                }
+
+                p = p + 1;
+            }
+
+            return couleurs;
+        }
+>>>>>>> 3826f2e4a00b8d7d9fd0a28ce611e6ff1a7109e9
 
                     int q = 0;
                     while (q < trié.Count)
