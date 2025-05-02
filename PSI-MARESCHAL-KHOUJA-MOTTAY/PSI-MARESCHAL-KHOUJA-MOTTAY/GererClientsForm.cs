@@ -19,17 +19,14 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
     public partial class GererClientsForm : Form
     {
         private string connectionString = "Server=localhost;Database=LivInParis;Uid=root;Pwd=111222;";
-
         public GererClientsForm()
         {
             InitializeComponent();
         }
-
         private void GererClientsForm_Load(object sender, EventArgs e)
         {
             ChargerClients();
         }
-
         private void ChargerClients()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -42,7 +39,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 dgvClients.DataSource = dt;
             }
         }
-
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             var formAjout = new AjouterClientForm();
@@ -51,7 +47,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 ChargerClients();
             }
         }
-
         private void btnModifier_Click(object sender, EventArgs e)
         {
             if (dgvClients.CurrentRow != null)
@@ -64,7 +59,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 }
             }
         }
-
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             if (dgvClients.CurrentRow != null)
@@ -85,7 +79,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 }
             }
         }
-
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -101,19 +94,11 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 string json = JsonConvert.SerializeObject(dt, Formatting.Indented);
-
-                //string json = System.Text.Json.JsonSerializer.Serialize(dt, new System.Text.Json.JsonSerializerOptions
-                //{
-                   // WriteIndented = true
-                //});
-
                 File.WriteAllText("clients.json", json);
-                //MessageBox.Show("Export JSON terminé !");
                 using (SaveFileDialog saveFileDialog = new SaveFileDialog())
                 {
                     saveFileDialog.Filter = "Fichiers JSON (*.json)|*.json";
                     saveFileDialog.Title = "Enregistrer les clients au format JSON";
-
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         File.WriteAllText(saveFileDialog.FileName, json);
@@ -134,11 +119,8 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable("Client");
                 adapter.Fill(dt);
-
                 DataSet ds = new DataSet("Clients");
                 ds.Tables.Add(dt);
-
-                // Boîte de dialogue pour enregistrer le fichier XML
                 using (SaveFileDialog saveFileDialog = new SaveFileDialog())
                 {
                     saveFileDialog.Filter = "Fichiers XML (*.xml)|*.xml";
@@ -146,7 +128,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
 
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        // Écrire le fichier XML à l'emplacement choisi par l'utilisateur
                         ds.WriteXml(saveFileDialog.FileName, XmlWriteMode.WriteSchema);
                         MessageBox.Show("Export XML réussi !");
                     }

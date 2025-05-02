@@ -129,6 +129,7 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             this.Controls.Add(this.btnModifier);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MettreAJourPlatForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mettre à jour un plat";
             this.ResumeLayout(false);
             this.PerformLayout();

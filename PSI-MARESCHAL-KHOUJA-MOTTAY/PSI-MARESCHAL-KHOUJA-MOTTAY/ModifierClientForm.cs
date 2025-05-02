@@ -15,13 +15,11 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
     {
         private int clientId;
         private string connectionString = "Server=localhost;Database=LivInParis;Uid=root;Pwd=111222;";
-
         public ModifierClientForm(int id)
         {
             InitializeComponent();
             clientId = id;
         }
-
         private void ModifierClientForm_Load(object sender, EventArgs e)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -42,7 +40,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 }
             }
         }
-
         private void btnModifier_Click(object sender, EventArgs e)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -55,10 +52,8 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
                 cmd.Parameters.AddWithValue("@mdp", txtPassword.Text);
                 cmd.Parameters.AddWithValue("@id", clientId);
-
                 cmd.ExecuteNonQuery();
             }
-
             MessageBox.Show("Client modifié avec succès.");
             this.DialogResult = DialogResult.OK;
             this.Close();

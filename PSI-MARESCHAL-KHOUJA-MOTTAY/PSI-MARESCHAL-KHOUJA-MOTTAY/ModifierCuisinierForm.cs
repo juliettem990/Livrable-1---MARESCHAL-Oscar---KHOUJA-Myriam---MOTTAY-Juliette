@@ -15,19 +15,15 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
     public partial class ModifierCuisinierForm : Form
     {
         private int idCuisinier;
-
         public ModifierCuisinierForm(int cuisinierId)
         {
             InitializeComponent();
             idCuisinier = cuisinierId;
         }
-
         private void ModifierCuisinierForm_Load(object sender, EventArgs e)
         {
-            // Ici, tu peux récupérer les informations du cuisinier et les afficher dans des TextBoxes
             DisplayCuisinierInfo();
         }
-
         private void DisplayCuisinierInfo()
         {
             try
@@ -36,7 +32,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-
                     string query = "SELECT prenom, email, mot_de_passe FROM Cuisinier WHERE id_cuisinier = @idCuisinier";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
@@ -62,7 +57,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 MessageBox.Show($"Erreur lors du chargement des informations : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnModifier_Click(object sender, EventArgs e)
         {
             try
@@ -70,18 +64,15 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 string prenom = txtPrenom.Text.Trim();
                 string email = txtEmail.Text.Trim();
                 string motDePasse = txtMotDePasse.Text.Trim();
-
                 if (string.IsNullOrEmpty(prenom) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(motDePasse))
                 {
                     MessageBox.Show("Tous les champs doivent être remplis.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
                 string connectionString = "Server=localhost;Port=3306;Database=LivInParis;User ID=root;Password='111222';";
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-
                     string query = "UPDATE Cuisinier SET prenom = @prenom, email = @email, mot_de_passe = @motDePasse WHERE id_cuisinier = @idCuisinier";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
@@ -89,12 +80,11 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                         cmd.Parameters.AddWithValue("@email", email);
                         cmd.Parameters.AddWithValue("@motDePasse", motDePasse);
                         cmd.Parameters.AddWithValue("@idCuisinier", idCuisinier);
-
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Informations du cuisinier modifiées avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close(); // Ferme le formulaire après modification
+                            this.Close();
                         }
                         else
                         {
@@ -108,10 +98,9 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 MessageBox.Show($"Erreur lors de la modification : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            this.Close(); // Annuler, ferme simplement le formulaire sans rien faire
+            this.Close(); 
         }
     }
 }

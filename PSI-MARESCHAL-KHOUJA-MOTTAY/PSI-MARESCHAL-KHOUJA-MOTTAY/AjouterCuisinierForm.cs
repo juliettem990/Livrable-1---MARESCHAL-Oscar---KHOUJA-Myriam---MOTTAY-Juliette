@@ -22,7 +22,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
         {
             try
             {
-                // Récupération des valeurs depuis les TextBox
                 string nom = txtNom.Text.Trim();
                 string prenom = txtPrenom.Text.Trim();
                 string email = txtEmail.Text.Trim();
@@ -33,23 +32,18 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 string codePostalText = txtCodePostal.Text.Trim();
                 string metroLePlusProche = txtMetro.Text.Trim();
                 string motDePasse = txtMotDePasse.Text.Trim();
-                string specialiteCulinaire = txtSpecialite.Text.Trim(); // suppose que tu as un champ txtSpecialite
-
-                // Validation basique
+                string specialiteCulinaire = txtSpecialite.Text.Trim(); 
                 if (string.IsNullOrEmpty(nom) || string.IsNullOrEmpty(prenom) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(motDePasse) || string.IsNullOrEmpty(telephone) || string.IsNullOrEmpty(metroLePlusProche))
                 {
                     MessageBox.Show("Veuillez remplir tous les champs obligatoires.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
-                // Conversion du code postal
                 int codePostal = 0;
                 if (!int.TryParse(codePostalText, out codePostal))
                 {
                     MessageBox.Show("Le code postal doit être un nombre valide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
                 string connectionString = "Server=localhost;Port=3306;Database=LivInParis;User ID=root;Password='111222';";
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
@@ -62,7 +56,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        // Ajout des paramètres
                         cmd.Parameters.AddWithValue("@nom", nom);
                         cmd.Parameters.AddWithValue("@prenom", prenom);
                         cmd.Parameters.AddWithValue("@email", email);
@@ -74,12 +67,11 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                         cmd.Parameters.AddWithValue("@metroLePlusProche", metroLePlusProche);
                         cmd.Parameters.AddWithValue("@specialiteCulinaire", specialiteCulinaire);
                         cmd.Parameters.AddWithValue("@motDePasse", motDePasse);
-
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Cuisinier ajouté avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close(); // Ferme le formulaire après ajout
+                            this.Close();
                         }
                         else
                         {
@@ -93,64 +85,9 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 MessageBox.Show($"Erreur lors de l'ajout : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        /*private void btnAjouter_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string prenom = txtPrenom.Text.Trim();
-                string email = txtEmail.Text.Trim();
-                string motDePasse = txtMotDePasse.Text.Trim();
-
-                string nom = txtNom.Text.Trim();
-                string password = txtPassword.Text;
-                string rue = txtRue.Text.Trim();
-                string numeroRue = txtNumeroRue.Text.Trim();
-                string ville = txtVille.Text.Trim();
-                string codePostalText = txtCodePostal.Text.Trim();
-                string metroLePlusProche = txtMetro.Text.Trim();
-                string telephone = txtTelephone.Text.Trim();
-
-                if (string.IsNullOrEmpty(prenom) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(motDePasse))
-                {
-                    MessageBox.Show("Tous les champs doivent être remplis.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                string connectionString = "Server=localhost;Port=3306;Database=LivInParis;User ID=root;Password='111222';";
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    conn.Open();
-
-                    string query = "INSERT INTO Cuisinier (prenom, email, mot_de_passe) VALUES (@prenom, @email, @motDePasse)";
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@prenom", prenom);
-                        cmd.Parameters.AddWithValue("@email", email);
-                        cmd.Parameters.AddWithValue("@motDePasse", motDePasse);
-
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Cuisinier ajouté avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close(); // Ferme le formulaire après ajout
-                        }
-                        else
-                        {
-                            MessageBox.Show("Erreur lors de l'ajout du cuisinier.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erreur lors de l'ajout : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }*/
-
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            this.Close(); // Annuler, ferme simplement le formulaire sans rien faire
+            this.Close(); 
         }
     }
 }

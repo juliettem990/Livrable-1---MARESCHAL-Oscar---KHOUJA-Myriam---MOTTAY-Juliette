@@ -24,13 +24,11 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
         private TextBox txtCodePostal;
         private TextBox txtMetro;
         private MainForm mainForm;
-
         public RegisterForm(MainForm mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
         }
-
         private void btnInscription_Click(object sender, EventArgs e)
         {
             string nom = txtNom.Text.Trim();
@@ -44,39 +42,32 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             string codePostal = txtCodePostal.Text.Trim();
             string metro = txtMetro.Text.Trim();
             string specialite = txtSpecialite.Text.Trim();
-
             string typeUtilisateur = comboType.SelectedItem?.ToString();
             string typeClient = comboClient.SelectedItem?.ToString();
-
             if (string.IsNullOrWhiteSpace(typeUtilisateur))
             {
                 MessageBox.Show("Veuillez sélectionner un type d'utilisateur.");
                 return;
             }
-
             if (!EmailEstUnique(email))
             {
                 MessageBox.Show("Cet e-mail est déjà utilisé.");
                 return;
             }
-
             using (MySqlConnection conn = new MySqlConnection(Program.connectionString))
             {
                 conn.Open();
                 string query = "";
-
                 if (typeUtilisateur == "Client")
                 {
                     query = "INSERT INTO Client (nom, prenom, email, telephone, mot_de_passe, ville, rue, numeroRue, codePostal, metroLePlusProche) " +
                             "VALUES (@Nom, @Prenom, @Email, @Telephone, @Password, @Ville, @Rue, @NumeroRue, @CodePostal, @Metro)";
-
                 }
                 else if (typeUtilisateur == "Cuisinier")
                 {
                     query = "INSERT INTO Cuisinier (nom, prenom, email, telephone, mot_de_passe, ville, rue, numeroRue, codePostal, metroLePlusProche, specialite_culinaire) " +
                             "VALUES (@Nom, @Prenom, @Email, @Telephone, @Password, @Ville, @Rue, @NumeroRue, @CodePostal, @Metro, @Specialite)";
                 }
-
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@Nom", nom);
@@ -89,12 +80,10 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                     cmd.Parameters.AddWithValue("@NumeroRue", numeroRue);
                     cmd.Parameters.AddWithValue("@CodePostal", codePostal);
                     cmd.Parameters.AddWithValue("@Metro", metro);
-
                     if (typeUtilisateur == "Cuisinier")
                     {
                         cmd.Parameters.AddWithValue("@Specialite", specialite);
                     }
-
                     try
                     {
                         cmd.ExecuteNonQuery();
@@ -106,11 +95,9 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                     {
                         MessageBox.Show("Erreur lors de l'inscription : " + ex.Message);
                     }
-
                 }
             }
         }
-
         private bool EmailEstUnique(string email)
         {
             using (MySqlConnection conn = new MySqlConnection(Program.connectionString))
@@ -125,7 +112,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 }
             }
         }
-
         private void comboType_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool estClient = comboType.SelectedItem?.ToString() == "Client";
@@ -137,6 +123,5 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             mainForm.Show();
             this.Close(); 
         }
-
     }
 }

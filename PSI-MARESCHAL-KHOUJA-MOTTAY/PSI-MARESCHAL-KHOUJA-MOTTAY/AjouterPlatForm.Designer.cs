@@ -242,6 +242,7 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             this.Controls.Add(this.btnAjouter);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AjouterPlatForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ajouter un plat";
             this.ResumeLayout(false);
             this.PerformLayout();

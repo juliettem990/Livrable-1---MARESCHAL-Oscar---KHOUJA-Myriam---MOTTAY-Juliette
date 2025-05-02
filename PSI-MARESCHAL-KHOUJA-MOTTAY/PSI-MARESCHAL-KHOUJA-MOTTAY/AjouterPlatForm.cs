@@ -17,8 +17,7 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
     public partial class AjouterPlatForm : Form
     {
         private int idCuisinier;
-        private string connectionString = "server=localhost;user=root;database=ta_base;password=;"; // À adapter
-
+        private string connectionString = "server=localhost;user=root;database=ta_base;password=;";
         public AjouterPlatForm(int idCuisinier, string connectionString)
         {
             InitializeComponent();
@@ -30,52 +29,40 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             InitializeComponent();
             this.idCuisinier = idCuisinier;
         }
-
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            // Récupérer les données des champs du formulaire
             string nom = txtNom.Text.Trim();
             string typePlat = comboTypePlat.Text.Trim();
             string nationalite = txtNationalite.Text.Trim();
             string ingredients = txtIngredients.Text.Trim();
-
-            // Vérification des données saisies pour le nombre de portions
+            #region Test des données saisies
             int nbPortions = 0;
             if (txtPortions.Text.Length == 0 || !int.TryParse(txtPortions.Text, out nbPortions))
             {
                 MessageBox.Show("Veuillez entrer un nombre valide pour le nombre de portions.");
                 return;
             }
-
-            // Vérification des données saisies pour le prix
             decimal prix = 0;
             if (txtPrix.Text.Length == 0 || decimal.TryParse(txtPrix.Text, out prix) == false)
             {
                 MessageBox.Show("Veuillez entrer un prix valide.");
                 return;
             }
-
-            // Vérification des données saisies pour la date de fabrication
             DateTime dateFab = DateTime.MinValue;
             if (dateFabricationPicker.Text.Length == 0 || !DateTime.TryParse(dateFabricationPicker.Text, out dateFab))
             {
                 MessageBox.Show("Veuillez entrer une date de fabrication valide.");
                 return;
             }
-
-            // Vérification des données saisies pour la date de péremption
             DateTime datePeremp = DateTime.MinValue;
             if (datePeremptionPicker.Text.Length == 0 || !DateTime.TryParse(datePeremptionPicker.Text, out datePeremp))
             {
                 MessageBox.Show("Veuillez entrer une date de péremption valide.");
                 return;
             }
-
-            // Connexion à la base de données
+            #endregion
             MySqlConnection conn = new MySqlConnection(Program.connectionString);
             conn.Open();
-
-            // Requête d'insertion dans la table Plat
             string query = "INSERT INTO Plat (id_cuisinier, nom, nombre_portion, type_plat, nationalite_plat, prix, ingredients, date_fabrication, date_peremption) " +
                            "VALUES (@Cuisinier, @Nom, @NbPersonnes, @Type, @Nationalite, @Prix, @Ingredients, @DateFabrication, @DatePeremption)";
 
@@ -90,10 +77,8 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             cmd.Parameters.AddWithValue("@DateFabrication", dateFab);
             cmd.Parameters.AddWithValue("@DatePeremption", datePeremp);
 
-            // Exécution de la requête
             int result = cmd.ExecuteNonQuery();
             conn.Close();
-
             if (result > 0)
             {
                 MessageBox.Show("Plat ajouté avec succès !");
@@ -104,7 +89,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 MessageBox.Show("Une erreur est survenue lors de l'ajout du plat.");
             }
         }
-
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             this.Close();

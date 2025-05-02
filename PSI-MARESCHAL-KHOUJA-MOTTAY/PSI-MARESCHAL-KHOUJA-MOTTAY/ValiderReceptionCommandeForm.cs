@@ -14,28 +14,23 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
     public partial class ValiderReceptionCommandeForm : Form
     {
         private int idClient;
-
         public ValiderReceptionCommandeForm(int idClient)
         {
             InitializeComponent();
             this.idClient = idClient;
             ChargerCommandesEnCours();
         }
-
         private void ChargerCommandesEnCours()
         {
             listBoxCommandes.Items.Clear();
-
             using (MySqlConnection conn = new MySqlConnection(Program.connectionString))
             {
                 conn.Open();
-
                 string countQuery = "SELECT COUNT(*) FROM Commande WHERE id_client = @Client AND statut_commande = 'En cours'";
                 using (MySqlCommand cmd = new MySqlCommand(countQuery, conn))
                 {
                     cmd.Parameters.AddWithValue("@Client", idClient);
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
-
                     if (count == 0)
                     {
                         lblMessage.Text = "Vous n'avez aucune commande en cours de réception.";
@@ -43,7 +38,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                         return;
                     }
                 }
-
                 string query = "SELECT id_commande FROM Commande WHERE id_client = @Client AND statut_commande = 'En cours'";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
@@ -57,12 +51,10 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                         }
                     }
                 }
-
                 lblMessage.Text = "Commandes en cours :";
                 btnValider.Enabled = true;
             }
         }
-
         private void btnValider_Click(object sender, EventArgs e)
         {
             if (listBoxCommandes.SelectedItem == null)
@@ -70,9 +62,7 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 MessageBox.Show("Veuillez sélectionner une commande à valider.");
                 return;
             }
-
             int idCommande = (int)listBoxCommandes.SelectedItem;
-
             using (MySqlConnection conn = new MySqlConnection(Program.connectionString))
             {
                 conn.Open();
@@ -82,15 +72,11 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                     cmd.Parameters.AddWithValue("@Commande", idCommande);
                     cmd.Parameters.AddWithValue("@Client", idClient);
                     int rowsAffected = cmd.ExecuteNonQuery();
-
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Commande livrée ! Vous pouvez maintenant noter le cuisinier.");
-
-                        // Ouvre la fenêtre de notation
                         var noterForm = new NoterCuisinierForm(idCommande);
                         noterForm.ShowDialog();
-
                         this.Close();
                     }
                     else
@@ -100,11 +86,9 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 }
             }
         }
-
         private void btnRetour_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
     }
 }

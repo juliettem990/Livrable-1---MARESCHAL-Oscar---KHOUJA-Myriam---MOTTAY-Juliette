@@ -16,7 +16,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
     public partial class CommanderPlatForm : Form
     {
         private int id_client;
-
         public CommanderPlatForm(int id_client)
         {
             InitializeComponent();
@@ -28,7 +27,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             listPlats.Columns.Add("Portions", 100);
             ChargerPlatsDisponibles();
         }
-
         private void ChargerPlatsDisponibles()
         {
             using (MySqlConnection conn = new MySqlConnection(Program.connectionString))
@@ -53,7 +51,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 }
             }
         }
-
         private void btnCommander_Click(object sender, EventArgs e)
         {
             if (listPlats.SelectedItems.Count == 0)
@@ -61,15 +58,11 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 MessageBox.Show("Veuillez sélectionner un plat.");
                 return;
             }
-
             int id_plat = (int)listPlats.SelectedItems[0].Tag;
             int nbPortions = (int)numPortions.Value;
-
             using (MySqlConnection conn = new MySqlConnection(Program.connectionString))
             {
                 conn.Open();
-
-                // Vérifier stock
                 string checkStock = "SELECT nombre_portion FROM Plat WHERE id_plat = @Plat";
                 int stockRestant;
                 using (MySqlCommand cmd = new MySqlCommand(checkStock, conn))
@@ -77,14 +70,11 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                     cmd.Parameters.AddWithValue("@Plat", id_plat);
                     stockRestant = Convert.ToInt32(cmd.ExecuteScalar());
                 }
-
                 if (stockRestant < nbPortions)
                 {
                     MessageBox.Show("Désolé, seulement " + stockRestant + " portions disponibles.");
                     return;
                 }
-
-                // Adresse
                 string adresseLivraison = "";
                 using (MySqlCommand cmd = new MySqlCommand("SELECT metroLePlusProche FROM Client WHERE id_client = @Client", conn))
                 {
@@ -97,16 +87,12 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                     }
                     adresseLivraison = result.ToString();
                 }
-
-                // ID cuisinier
                 int id_cuisinier;
                 using (MySqlCommand cmd = new MySqlCommand("SELECT id_cuisinier FROM Plat WHERE id_plat = @Plat", conn))
                 {
                     cmd.Parameters.AddWithValue("@Plat", id_plat);
                     id_cuisinier = Convert.ToInt32(cmd.ExecuteScalar());
                 }
-
-                // Insertion commande
                 string insertCommande = @"INSERT INTO Commande (id_client, id_cuisinier, id_plat, date_heure_commande, nombre_portion, statut_commande, adresse_livraison)
                                       VALUES (@Client, @Cuisinier, @Plat, NOW(), @Portions, 'En attente', @Adresse)";
                 using (MySqlCommand cmd = new MySqlCommand(insertCommande, conn))
@@ -118,19 +104,15 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                     cmd.Parameters.AddWithValue("@Adresse", adresseLivraison);
                     cmd.ExecuteNonQuery();
                 }
-
-                // Mise à jour stock
                 using (MySqlCommand cmd = new MySqlCommand("UPDATE Plat SET nombre_portion = nombre_portion - @Portions WHERE id_plat = @Plat", conn))
                 {
                     cmd.Parameters.AddWithValue("@Plat", id_plat);
                     cmd.Parameters.AddWithValue("@Portions", nbPortions);
                     cmd.ExecuteNonQuery();
                 }
-
                 MessageBox.Show("Commande passée avec succès !");
             }
         }
-
         private void btnRetour_Click(object sender, EventArgs e)
         {
             this.Close();

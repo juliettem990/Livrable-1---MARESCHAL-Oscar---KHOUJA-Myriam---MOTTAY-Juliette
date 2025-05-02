@@ -54,7 +54,7 @@
             this.dgvAvis.AllowUserToDeleteRows = false;
             this.dgvAvis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAvis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAvis.Location = new System.Drawing.Point(30, 120);
+            this.dgvAvis.Location = new System.Drawing.Point(35, 151);
             this.dgvAvis.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvAvis.Name = "dgvAvis";
             this.dgvAvis.ReadOnly = true;
@@ -68,7 +68,7 @@
             this.lblTitreAvis.AutoSize = true;
             this.lblTitreAvis.BackColor = System.Drawing.Color.Transparent;
             this.lblTitreAvis.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTitreAvis.Location = new System.Drawing.Point(30, 60);
+            this.lblTitreAvis.Location = new System.Drawing.Point(35, 91);
             this.lblTitreAvis.Name = "lblTitreAvis";
             this.lblTitreAvis.Size = new System.Drawing.Size(144, 25);
             this.lblTitreAvis.TabIndex = 2;
@@ -80,7 +80,7 @@
             this.lblAucunAvis.BackColor = System.Drawing.Color.Transparent;
             this.lblAucunAvis.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblAucunAvis.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblAucunAvis.Location = new System.Drawing.Point(30, 90);
+            this.lblAucunAvis.Location = new System.Drawing.Point(35, 121);
             this.lblAucunAvis.Name = "lblAucunAvis";
             this.lblAucunAvis.Size = new System.Drawing.Size(277, 23);
             this.lblAucunAvis.TabIndex = 3;
@@ -104,7 +104,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(952, 683);
+            this.ClientSize = new System.Drawing.Size(952, 783);
             this.Controls.Add(this.btnRetour);
             this.Controls.Add(this.lblAucunAvis);
             this.Controls.Add(this.lblTitreAvis);

@@ -377,6 +377,7 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             this.Controls.Add(this.btnRetour);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegisterForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulaire d\'Inscription";
             this.ResumeLayout(false);
             this.PerformLayout();

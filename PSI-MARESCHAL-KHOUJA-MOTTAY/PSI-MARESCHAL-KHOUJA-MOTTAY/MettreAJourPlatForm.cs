@@ -14,7 +14,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
     public partial class MettreAJourPlatForm : Form
     {
         private int idCuisinier;
-
         public MettreAJourPlatForm(int idCuisinier)
         {
             InitializeComponent();
@@ -24,14 +23,11 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             lstPlats.Columns.Add("Nom", 150);
             lstPlats.Columns.Add("Prix", 100);
             lstPlats.Columns.Add("Quantité", 100);
-
             ChargerPlats();
         }
-
         private void ChargerPlats()
         {
             lstPlats.Items.Clear();
-
             using (MySqlConnection conn = new MySqlConnection(Program.connectionString))
             {
                 conn.Open();
@@ -47,7 +43,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                             string nom = reader.GetString("nom");
                             decimal prix = reader.GetDecimal("prix");
                             int portions = reader.GetInt32("nombre_portion");
-
                             lstPlats.Items.Add(new ListViewItem(new[] {
                                 idPlat.ToString(), nom, prix.ToString("0.00"), portions.ToString()
                             }));
@@ -56,7 +51,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 }
             }
         }
-
         private void btnModifier_Click(object sender, EventArgs e)
         {
             if (lstPlats.SelectedItems.Count == 0)
@@ -64,18 +58,14 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 MessageBox.Show("Veuillez sélectionner un plat à modifier.");
                 return;
             }
-
             var item = lstPlats.SelectedItems[0];
             int idPlat = int.Parse(item.SubItems[0].Text);
             decimal oldPrix = decimal.Parse(item.SubItems[2].Text);
             int oldQuantite = int.Parse(item.SubItems[3].Text);
-
             if (!decimal.TryParse(txtPrix.Text, out decimal newPrix))
                 newPrix = oldPrix;
-
             if (!int.TryParse(txtQuantite.Text, out int newQuantite))
                 newQuantite = oldQuantite;
-
             using (MySqlConnection conn = new MySqlConnection(Program.connectionString))
             {
                 conn.Open();
@@ -88,13 +78,11 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                     cmd.ExecuteNonQuery();
                 }
             }
-
             MessageBox.Show("Plat mis à jour avec succès !");
             ChargerPlats();
             txtPrix.Text = "";
             txtQuantite.Text = "";
         }
-
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             this.Close();

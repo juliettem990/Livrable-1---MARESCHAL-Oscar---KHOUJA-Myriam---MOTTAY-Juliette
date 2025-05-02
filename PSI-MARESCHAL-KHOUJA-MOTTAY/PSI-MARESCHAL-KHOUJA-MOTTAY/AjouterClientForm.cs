@@ -15,14 +15,12 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
     public partial class AjouterClientForm : Form
     {
         private string connectionString = "Server=localhost;Database=LivInParis;Uid=root;Pwd=111222;";
-
         public AjouterClientForm()
         {
             InitializeComponent();
         }
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            // Récupération des données
             string nom = txtNom.Text.Trim();
             string prenom = txtPrenom.Text.Trim();
             string email = txtEmail.Text.Trim();
@@ -33,14 +31,11 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             string codePostalText = txtCodePostal.Text.Trim();
             string metroLePlusProche = txtMetro.Text.Trim();
             string telephone = txtTelephone.Text.Trim();
-
-
             if (!int.TryParse(codePostalText, out int codePostal))
             {
                 MessageBox.Show("Code postal invalide !");
                 return;
             }
-
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
@@ -60,48 +55,19 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 cmd.Parameters.AddWithValue("@metro", metroLePlusProche);
                 cmd.Parameters.AddWithValue("@telephone", telephone);
                 cmd.Parameters.AddWithValue("@password", password);
-
                 cmd.ExecuteNonQuery();
             }
-
             MessageBox.Show("Client ajouté avec succès.");
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
-
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            this.Close(); // Annuler, ferme simplement le formulaire sans rien faire
+            this.Close(); 
         }
-
-        /* private void btnAjouter_Click(object sender, EventArgs e)
-         {
-             string nom = txtNom.Text.Trim();
-             string prenom = txtPrenom.Text.Trim();
-             string email = txtEmail.Text.Trim();
-             string password = txtPassword.Text;
-
-             using (MySqlConnection conn = new MySqlConnection(connectionString))
-             {
-                 conn.Open();
-                 string query = "INSERT INTO Client (nom, prenom, email, mot_de_passe) VALUES (@nom, @prenom, @email, @password)";
-                 MySqlCommand cmd = new MySqlCommand(query, conn);
-                 cmd.Parameters.AddWithValue("@nom", nom);
-                 cmd.Parameters.AddWithValue("@prenom", prenom);
-                 cmd.Parameters.AddWithValue("@email", email);
-                 cmd.Parameters.AddWithValue("@password", password);
-
-                 cmd.ExecuteNonQuery();
-             }
-
-             MessageBox.Show("Client ajouté avec succès.");
-             this.DialogResult = DialogResult.OK;
-             this.Close();
-         }*/
     }
 }

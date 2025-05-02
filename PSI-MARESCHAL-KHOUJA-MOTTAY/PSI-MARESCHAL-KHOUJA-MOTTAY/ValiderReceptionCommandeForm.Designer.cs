@@ -84,7 +84,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(952, 683);
+            this.ClientSize = new System.Drawing.Size(952, 783);
             this.Controls.Add(this.btnRetour);
             this.Controls.Add(this.listBoxCommandes);
             this.Controls.Add(this.lblMessage);

@@ -14,19 +14,15 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
     public partial class SupprimerClientForm : Form
     {
         private int idClient;
-
         public SupprimerClientForm(int clientId)
         {
             InitializeComponent();
             idClient = clientId;
         }
-
         private void SupprimerClientForm_Load(object sender, EventArgs e)
         {
-            // Ici, tu peux récupérer les détails du client et les afficher dans des TextBoxes si nécessaire
-            // Exemple : DisplayClientInfo();
-        }
 
+        }
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             try
@@ -35,7 +31,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-
                     string query = "DELETE FROM Client WHERE id_client = @idClient";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
@@ -43,9 +38,8 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
                         cmd.ExecuteNonQuery();
                     }
                 }
-
                 MessageBox.Show("Le client a été supprimé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close(); // Ferme le formulaire après suppression
+                this.Close();
             }
             catch (Exception ex)
             {

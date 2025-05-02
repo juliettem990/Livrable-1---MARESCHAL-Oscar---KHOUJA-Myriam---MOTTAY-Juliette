@@ -12,44 +12,31 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
 {
     public partial class AdminMenuForm : Form
     {
-        private MainForm mainForm;  // Référence à l'instance de MainForm
-
+        private MainForm mainForm; 
         public AdminMenuForm(MainForm mainForm)
         {
-            this.mainForm = mainForm;  // Stocker la référence
+            this.mainForm = mainForm;  
             InitializeComponent();
         }
         public AdminMenuForm()
         {
-
             InitializeComponent();
         }
         private void btnGererClients_Click(object sender, EventArgs e)
         {
-            // Redirection vers la fenêtre de gestion des clients
             GererClientsForm gererClientsForm = new GererClientsForm();
-            //this.Hide();
             gererClientsForm.Show();
-            
         }
-
         private void btnGererCuisiniers_Click(object sender, EventArgs e)
         {
-            // Redirection vers la fenêtre de gestion des cuisiniers
             GererCuisinierForm gererCuisiniersForm = new GererCuisinierForm();
-            //this.Hide();
             gererCuisiniersForm.Show();
         }
-
         private void btnGererCommandes_Click(object sender, EventArgs e)
         {
-            // Redirection vers la fenêtre de gestion des commandes
             GererCommandesForm gererCommandesForm = new GererCommandesForm();
-            //this.Hide();
             gererCommandesForm.Show();
         }
-
-
         private void btnQuitter_Click(object sender, EventArgs e)
         {
             mainForm.Show();
