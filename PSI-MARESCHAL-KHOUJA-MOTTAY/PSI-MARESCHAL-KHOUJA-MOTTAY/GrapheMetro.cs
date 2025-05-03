@@ -289,52 +289,6 @@ namespace PSI_MARESCHAL_KHOUJA_MOTTAY
             }
             return -1;
         }
-        public Dictionary<Station, int> ColorerGraphe()
-        {
-            // Construire la liste d'adjacence
-            Dictionary<Station, List<Station>> adjacence = new Dictionary<Station, List<Station>>();
-
-            foreach (var station in Stations)
-                adjacence[station] = new List<Station>();
-
-            foreach (var connexion in Connexions)
-            {
-                adjacence[connexion.From].Add(connexion.To);
-                adjacence[connexion.To].Add(connexion.From); // Graphe non orienté
-            }
-
-            // Trier les sommets par degré décroissant
-            List<Station> stationsTriees = adjacence.Keys
-                .OrderByDescending(s => adjacence[s].Count)
-                .ToList();
-
-            Dictionary<Station, int> couleurs = new Dictionary<Station, int>();
-
-            int couleurActuelle = 1;
-            foreach (var station in stationsTriees)
-            {
-                if (couleurs.ContainsKey(station))
-                    continue;
-
-                // Appliquer la couleur à la station
-                couleurs[station] = couleurActuelle;
-
-                // Appliquer la même couleur aux stations non adjacentes à celles déjà colorées avec cette couleur
-                foreach (var autre in stationsTriees)
-                {
-                    if (!couleurs.ContainsKey(autre) &&
-                        !adjacence[station].Contains(autre) &&  // Pas voisin de la station courante
-                        !adjacence[autre].Any(voisin => couleurs.ContainsKey(voisin) && couleurs[voisin] == couleurActuelle)) // Aucun voisin coloré avec couleurActuelle
-                    {
-                        couleurs[autre] = couleurActuelle;
-                    }
-                }
-
-                couleurActuelle++;
-            }
-
-            return couleurs;
-        }
         public List<Station> ChuLiuEdmonds(int rootId)
         {
             Dictionary<int, (Station from, double poids)> minArcs = new Dictionary<int, (Station, double)>();
